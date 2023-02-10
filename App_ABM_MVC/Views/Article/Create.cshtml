@@ -2,18 +2,21 @@
     ViewBag.Title = "Crear articulo";
 }
 
+@using App_ABM_MVC.Controllers;
+
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
 <br />
 <div style="width: 300px;">
-    <form>
+    <form asp-action="Create">
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" name="name"/>
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control">
+            <select class="form-control" name="category">
+                <option selected></option>
                 <option>Otro</option>
                 <option>Muebles</option>
                 <option>Electrodomesticos</option>
@@ -22,9 +25,9 @@
         </div>
         <div class="form-group">
             <label>Descripción</label>
-            <textarea typeof="text" class="form-control"></textarea>
+            <textarea typeof="text" class="form-control" name="description"></textarea>
         </div>
         <br />
-        <button type="submit" class="btn btn-primary" asp-controller="Article" asp-action="ListDetails">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>

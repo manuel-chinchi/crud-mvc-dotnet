@@ -4,6 +4,15 @@
     ViewBag.Title = "Lista de articulos";
 }
 
+@if (ViewBag.MessageError != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <p>@ViewBag.MessageError</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
 <div>

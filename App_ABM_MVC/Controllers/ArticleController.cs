@@ -10,7 +10,7 @@ namespace App_ABM_MVC.Controllers
 {
     public class ArticleController : Controller
     {
-        public List<ArticleModel> articles { get; set; }
+        public static List<ArticleModel> articles { get; set; }
 
         public ArticleController()
         {
@@ -30,10 +30,28 @@ namespace App_ABM_MVC.Controllers
         }
 
         // GET: ArticleController/Create
+        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Message = "Ingrese los datos del nuevo artículo";
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(string name, string category, string description)
+        {
+            ViewBag.Articles = articles;
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(description))
+            {
+                ViewBag.MessageError = "Error. Todos los campos del articulo deben tener un valor.";
+            }
+            else
+            {
+                articles.Add(new ArticleModel() { Id = (articles.Count + 1), Name = name, Category = category, Description = description });
+            }
+
+            return View("ListDetails");
         }
 
         // GET: ArticleController/Details/{int:id}
