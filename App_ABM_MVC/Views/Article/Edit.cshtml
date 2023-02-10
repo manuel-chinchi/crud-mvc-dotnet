@@ -1,0 +1,34 @@
+﻿@{ 
+// TODO 3: Modelo que recibe la vista es de tipo 'ArticleModel'. Lo manejo mediante la variable 'Model' con razor.
+}
+@model ArticleModel
+
+@{
+    ViewBag.Title = "Editar articulo";
+}
+
+<h3>@ViewBag.Title</h3>
+<br />
+<div style="width: 300px;">
+    <form>
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" class="form-control" value="@Model.Name"/>
+        </div>
+        <div class="form-group">
+            <label>Categoría</label>
+            <select class="form-control">
+                <option selected>@Model.Category</option>
+                <option>Muebles</option>
+                <option>Electrodomesticos</option>
+                <option>Herramientas</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea typeof="text" class="form-control">@Model.Description</textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" asp-controller="Article" asp-action="ListDetails">Guardar</button>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewBag.Title = "Lista de articulos";
+}
+
+<h3>@ViewBag.Title</h3>
+<p>@ViewBag.Message</p>
+<div>
+    <form>
+        <button type="submit" class="btn btn-success px-3" asp-controller="Article" asp-action="Create">Agregar</button>
+    </form>
+</div>
+<br />
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="row">#</th>
+                <th>Nombre</th>
+                <th>Categoria</th>
+                <th>Descripción</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ArticleModel article in ViewBag.Articles)
+            {
+                // TODO 2: Cargo la lista de articulos en la vista.
+                <tr>
+                    <th scope="row">@article.Id</th>
+                    <td>@article.Name</td>
+                    <td>@article.Category</td>
+                    <td>@article.Description</td>
+                    <td>
+                        <form>
+                            @* 
+                                TODO 7: El valor del parametro 'name' (id) es el que se le pasa al metodo 'Edit' del controlador 
+                                name tiene que tener el valor de 'id' como esta definido en el metodo de la vista correspondiente, 
+                                sino no lo recibira el metodo.
+                            *@
+                            <button class="btn btn-primary px-3" asp-controller="Article" asp-action="Edit" name="id" value="@article.Id">Editar</button>
+                            <button class="btn btn-success" asp-controller="Article" asp-action="Details" name="id" value="@article.Id">Detalles</button>
+                            <button class="btn btn-danger" asp-controller="Article" asp-action="Delete" name="id" value="@article.Id">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Total: @ViewBag.Articles.Count</p>
+</div>
