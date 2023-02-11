@@ -10,14 +10,15 @@
 <h3>@ViewBag.Title</h3>
 <br />
 <div style="width: 300px;">
-    <form>
+    <form asp-action="Edit">
+        <input hidden value="@Model.Id" name="id"/>
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" class="form-control" value="@Model.Name"/>
+            <input type="text" class="form-control" value="@Model.Name" name="name"/>
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control">
+            <select class="form-control" name="category">
                 <option selected>@Model.Category</option>
                 <option>Muebles</option>
                 <option>Electrodomesticos</option>
@@ -26,9 +27,9 @@
         </div>
         <div class="form-group">
             <label>Descripción</label>
-            <textarea typeof="text" class="form-control">@Model.Description</textarea>
+            <textarea typeof="text" class="form-control" name="description">@Model.Description</textarea>
         </div>
         <br />
-        <button type="submit" class="btn btn-primary" asp-controller="Article" asp-action="ListDetails">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>

@@ -21,5 +21,18 @@ namespace App_ABM_MVC.Models
             Description = description;
             Category = category;
         }
+
+        public override bool Equals(object article)
+        {
+            if ((article == null) || !this.GetType().Equals(article.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                ArticleModel p = (ArticleModel)article;
+                return (Id == p.Id) && (Name == p.Name) && (Category == p.Category) && (Description == p.Description);
+            }
+        }
     }
 }

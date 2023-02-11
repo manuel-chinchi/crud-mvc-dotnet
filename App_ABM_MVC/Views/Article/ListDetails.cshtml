@@ -4,10 +4,19 @@
     ViewBag.Title = "Lista de articulos";
 }
 
-@if (ViewBag.MessageError != null)
+@if (ViewBag.MessageEditSuccess != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>@ViewBag.MessageEditSuccess</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+@if (ViewBag.MessageCreateError != null)
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p>@ViewBag.MessageError</p>
+        <p>@ViewBag.MessageCreateError</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -43,11 +52,6 @@
                     <td>@article.Description</td>
                     <td>
                         <form>
-                            @* 
-                                TODO 7: El valor del parametro 'name' (id) es el que se le pasa al metodo 'Edit' del controlador 
-                                name tiene que tener el valor de 'id' como esta definido en el metodo de la vista correspondiente, 
-                                sino no lo recibira el metodo.
-                            *@
                             <button class="btn btn-primary px-3" asp-controller="Article" asp-action="Edit" name="id" value="@article.Id">Editar</button>
                             <button class="btn btn-success" asp-controller="Article" asp-action="Details" name="id" value="@article.Id">Detalles</button>
                             <button class="btn btn-danger" asp-controller="Article" asp-action="Delete" name="id" value="@article.Id">Eliminar</button>

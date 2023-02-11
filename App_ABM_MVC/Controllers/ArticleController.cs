@@ -44,7 +44,7 @@ namespace App_ABM_MVC.Controllers
 
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(description))
             {
-                ViewBag.MessageError = "Error. Todos los campos del articulo deben tener un valor.";
+                ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
             }
             else
             {
@@ -71,11 +71,39 @@ namespace App_ABM_MVC.Controllers
         }
 
         // GET: ArticleController/Edit/{int:id}
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             // TODO 4: Busco el articulo seleccionado, esto lo haría el 'service' de articulos
             ArticleModel articleSelected = articles.Find(a => a.Id == id);
             return View(articleSelected);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ArticleModel article)
+        {
+            ArticleModel articleEdit = articles.Find(a => a.Id == article.Id);
+
+            if (articleEdit.Equals(article) == true)
+            {
+                ViewBag.MessageEditSuccess = "No se realizaron cambios en el articulo";
+
+                ViewBag.Articles = articles;
+
+                return View("ListDetails");
+            }
+
+            int index = articles.FindIndex(a => a.Id == article.Id);
+
+            if (index >= 0)
+            {
+                articles[index] = article;
+                ViewBag.MessageEditSuccess = "Se ha actualizado el articulo";
+            }
+
+            ViewBag.Articles = articles;
+
+            return View("ListDetails");
         }
 
         // GET: ArticleController/Delete/{int:id}
