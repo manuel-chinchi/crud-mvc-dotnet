@@ -110,8 +110,13 @@ namespace App_ABM_MVC.Controllers
         // GET: ArticleController/Delete/{int:id}
         public IActionResult Delete(int id)
         {
-            ViewBag.Message = "Esta página todavía no esta hecha. Sepa disculpar.";
-            return View("Error");
+            ArticleModel article = articles.Find(a => a.Id == id);
+
+            articles.Remove(article);
+
+            ViewBag.Articles = articles;
+
+            return View("ListDetails");
         }
     }
 }
