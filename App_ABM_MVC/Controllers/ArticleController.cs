@@ -10,12 +10,12 @@ namespace App_ABM_MVC.Controllers
 {
     public class ArticleController : Controller
     {
-        public static List<ArticleModel> articles { get; set; }
+        public static List<ArticleModel> s_articles { get; set; }
 
         public ArticleController()
         {
             // TODO 1: Lista de articulos (hardcodeada). Esta lista la debería traer el 'service' de articulos -> ArticleService
-            articles = new List<ArticleModel>()
+            s_articles = new List<ArticleModel>()
             {
                 new ArticleModel { Id = 1, Name = "Escoba", Category = "Otro", Description = "Chica - 130cm x 4cm" },
                 new ArticleModel { Id = 2, Name = "Balde", Category = "Otro", Description = "20cm x 22cm" },
@@ -34,13 +34,14 @@ namespace App_ABM_MVC.Controllers
         public IActionResult Create()
         {
             ViewBag.Message = "Ingrese los datos del nuevo artículo";
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(string name, string category, string description)
         {
-            ViewBag.Articles = articles;
+            ViewBag.Articles = s_articles;
 
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(description))
             {
@@ -49,7 +50,8 @@ namespace App_ABM_MVC.Controllers
             else
             {
                 ViewBag.MessageCreateSuccess = "Se ha agregado el articulo";
-                articles.Add(new ArticleModel() { Id = (articles.Count + 1), Name = name, Category = category, Description = description });
+
+                s_articles.Add(new ArticleModel() { Id = (s_articles.Count + 1), Name = name, Category = category, Description = description });
             }
 
             return View("ListDetails");
@@ -58,7 +60,8 @@ namespace App_ABM_MVC.Controllers
         // GET: ArticleController/Details/{int:id}
         public IActionResult Details(int id)
         {
-            ArticleModel articleSelected = articles.Find(a => a.Id == id);
+            ArticleModel articleSelected = s_articles.Find(a => a.Id == id);
+
             return View(articleSelected);
         }
 
@@ -66,7 +69,8 @@ namespace App_ABM_MVC.Controllers
         public IActionResult ListDetails()
         {
             ViewBag.Message = "Lista de articulos existentes";
-            ViewBag.Articles = articles;
+
+            ViewBag.Articles = s_articles;
 
             return View();
         }
@@ -76,33 +80,30 @@ namespace App_ABM_MVC.Controllers
         public IActionResult Edit(int id)
         {
             // TODO 4: Busco el articulo seleccionado, esto lo haría el 'service' de articulos
-            ArticleModel articleSelected = articles.Find(a => a.Id == id);
+            ArticleModel articleSelected = s_articles.Find(a => a.Id == id);
+
             return View(articleSelected);
         }
 
         [HttpPost]
         public IActionResult Edit(ArticleModel article)
         {
-            ArticleModel articleEdit = articles.Find(a => a.Id == article.Id);
+            ArticleModel articleEdit = s_articles.Find(a => a.Id == article.Id);
 
             if (articleEdit.Equals(article) == true)
             {
                 ViewBag.MessageEditSuccess = "No se realizaron cambios en el articulo";
-
-                ViewBag.Articles = articles;
-
-                return View("ListDetails");
             }
-
-            int index = articles.FindIndex(a => a.Id == article.Id);
-
-            if (index >= 0)
+            else
             {
-                articles[index] = article;
+                int indexArticleEdit = s_articles.FindIndex(a => a.Id == article.Id);
+
+                s_articles[indexArticleEdit] = article;
+
                 ViewBag.MessageEditSuccess = "Se ha actualizado el articulo";
             }
 
-            ViewBag.Articles = articles;
+            ViewBag.Articles = s_articles;
 
             return View("ListDetails");
         }
@@ -110,11 +111,11 @@ namespace App_ABM_MVC.Controllers
         // GET: ArticleController/Delete/{int:id}
         public IActionResult Delete(int id)
         {
-            ArticleModel article = articles.Find(a => a.Id == id);
+            ArticleModel articleDelete = s_articles.Find(a => a.Id == id);
 
-            articles.Remove(article);
+            s_articles.Remove(articleDelete);
 
-            ViewBag.Articles = articles;
+            ViewBag.Articles = s_articles;
 
             return View("ListDetails");
         }
