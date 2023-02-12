@@ -23,13 +23,11 @@ namespace App_ABM_MVC.Controllers
             };
         }
 
-        // GET: ArticleController
         public IActionResult Index()
         {
             return View();
         }
 
-        // GET: ArticleController/Create
         [HttpGet]
         public IActionResult Create()
         {
@@ -68,7 +66,6 @@ namespace App_ABM_MVC.Controllers
             return View("ListDetails");
         }
 
-        // GET: ArticleController/Details/{int:id}
         public IActionResult Details(int id)
         {
             ArticleModel articleSelected = s_articles.Find(a => a.Id == id);
@@ -76,7 +73,6 @@ namespace App_ABM_MVC.Controllers
             return View(articleSelected);
         }
 
-        // GET: ArticleController/ListDetails
         public IActionResult ListDetails()
         {
             ViewBag.Message = "Lista de articulos existentes";
@@ -86,7 +82,6 @@ namespace App_ABM_MVC.Controllers
             return View();
         }
 
-        // GET: ArticleController/Edit/{int:id}
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -119,7 +114,6 @@ namespace App_ABM_MVC.Controllers
             return View("ListDetails");
         }
 
-        // GET: ArticleController/Delete/{int:id}
         public IActionResult Delete(int id)
         {
             ArticleModel articleDelete = s_articles.Find(a => a.Id == id);
