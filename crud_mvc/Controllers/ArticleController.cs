@@ -48,11 +48,11 @@ namespace crud_mvc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string name, string category, string description)
+        public IActionResult Create(ArticleModel article)
         {
             ViewBag.Articles = s_articles;
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(description))
+            if (string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Category) || string.IsNullOrEmpty(article.Description))
             {
                 ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
             }
@@ -60,7 +60,9 @@ namespace crud_mvc.Controllers
             {
                 ViewBag.MessageCreateSuccess = "Se ha agregado el articulo";
 
-                s_articles.Add(new ArticleModel() { Id = (s_articles.Count + 1), Name = name, Category = category, Description = description });
+                article.Id = s_articles.Count + 1;
+
+                s_articles.Add(article);
             }
 
             return View("ListDetails");
