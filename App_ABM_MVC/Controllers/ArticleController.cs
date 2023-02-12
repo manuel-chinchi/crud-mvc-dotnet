@@ -35,6 +35,17 @@ namespace App_ABM_MVC.Controllers
         {
             ViewBag.Message = "Ingrese los datos del nuevo artículo";
 
+            string[] categories =
+            {
+                "Otro",
+                "Muebles",
+                "Electrodomesticos",
+                "Herramientas",
+                "Limpieza"
+            };
+
+            ViewBag.Categories = categories;
+
             return View();
         }
 

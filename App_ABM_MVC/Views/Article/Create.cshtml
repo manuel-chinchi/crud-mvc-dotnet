@@ -16,11 +16,10 @@
         <div class="form-group">
             <label>Categoría</label>
             <select class="form-control" name="category">
-                <option selected></option>
-                <option>Otro</option>
-                <option>Muebles</option>
-                <option>Electrodomesticos</option>
-                <option>Herramientas</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option>@item</option>
+                }
             </select>
         </div>
         <div class="form-group">
