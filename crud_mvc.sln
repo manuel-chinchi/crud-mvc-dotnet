@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App_ABM_MVC", "App_ABM_MVC\App_ABM_MVC.csproj", "{48D45B4E-B58C-4F63-9E44-78B579A712B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crud_mvc", "crud_mvc\crud_mvc.csproj", "{48D45B4E-B58C-4F63-9E44-78B579A712B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
