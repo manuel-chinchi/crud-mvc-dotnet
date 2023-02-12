@@ -48,6 +48,7 @@ namespace App_ABM_MVC.Controllers
             }
             else
             {
+                ViewBag.MessageCreateSuccess = "Se ha agregado el articulo";
                 articles.Add(new ArticleModel() { Id = (articles.Count + 1), Name = name, Category = category, Description = description });
             }
 
