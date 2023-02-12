@@ -1,4 +1,4 @@
-﻿using App_ABM_MVC.Models;
+﻿using crud_mvc.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace App_ABM_MVC.Controllers
+namespace crud_mvc.Controllers
 {
     public class ArticleController : Controller
     {

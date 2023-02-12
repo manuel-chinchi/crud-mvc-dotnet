@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace App_ABM_MVC.Models
+namespace crud_mvc.Models
 {
     public class ArticleModel
     {

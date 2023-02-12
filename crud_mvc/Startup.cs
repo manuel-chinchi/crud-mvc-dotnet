@@ -1,4 +1,4 @@
-using App_ABM_MVC.Controllers;
+using crud_mvc.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace App_ABM_MVC
+namespace crud_mvc
 {
     public class Startup
     {

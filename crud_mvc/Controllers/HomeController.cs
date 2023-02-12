@@ -1,4 +1,4 @@
-﻿using App_ABM_MVC.Models;
+﻿using crud_mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace App_ABM_MVC.Controllers
+namespace crud_mvc.Controllers
 {
     public class HomeController : Controller
     {

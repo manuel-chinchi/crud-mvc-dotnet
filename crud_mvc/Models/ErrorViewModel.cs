@@ -1,6 +1,6 @@
 using System;
 
-namespace App_ABM_MVC.Models
+namespace crud_mvc.Models
 {
     public class ErrorViewModel
     {

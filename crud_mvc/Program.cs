@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace App_ABM_MVC
+namespace crud_mvc
 {
     public class Program
     {
