@@ -1,4 +1,5 @@
 ﻿using crud_mvc.Models;
+using crud_mvc.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,17 +11,11 @@ namespace crud_mvc.Controllers
 {
     public class ArticleController : Controller
     {
-        public static List<ArticleModel> s_articles { get; set; }
+        public static ArticleService articleService { get; set; }
 
         public ArticleController()
         {
-            // TODO 1: Lista de articulos (hardcodeada). Esta lista la debería traer el 'service' de articulos -> ArticleService
-            s_articles = new List<ArticleModel>()
-            {
-                new ArticleModel { Id = 1, Name = "Escoba", Category = "Otro", Description = "Chica - 130cm x 4cm" },
-                new ArticleModel { Id = 2, Name = "Balde", Category = "Otro", Description = "20cm x 22cm" },
-                new ArticleModel { Id = 3, Name = "Consola juegos", Category = "Otro", Description = "Play 2 - usada - chipeada" }
-            };
+            articleService = new ArticleService();
         }
 
         public IActionResult Index()
@@ -35,11 +30,12 @@ namespace crud_mvc.Controllers
 
             string[] categories =
             {
-                "Otro",
+                "",
                 "Muebles",
                 "Electrodomesticos",
                 "Herramientas",
-                "Limpieza"
+                "Limpieza",
+                "Otro"
             };
 
             ViewBag.Categories = categories;
@@ -50,19 +46,17 @@ namespace crud_mvc.Controllers
         [HttpPost]
         public IActionResult Create(ArticleModel article)
         {
-            ViewBag.Articles = s_articles;
+            ViewBag.Articles = articleService.GetArticles();
 
-            if (string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Category) || string.IsNullOrEmpty(article.Description))
-            {
-                ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
-            }
-            else
+            if (articleService.IsValidArticle(article) == true)
             {
                 ViewBag.MessageCreateSuccess = "Se ha agregado el articulo";
 
-                article.Id = s_articles.Count + 1;
-
-                s_articles.Add(article);
+                articleService.InsertArticle(article);
+            }
+            else
+            {
+                ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
             }
 
             return View("ListDetails");
@@ -70,16 +64,14 @@ namespace crud_mvc.Controllers
 
         public IActionResult Details(int id)
         {
-            ArticleModel articleSelected = s_articles.Find(a => a.Id == id);
-
-            return View(articleSelected);
+            return View(articleService.GetArticle(id));
         }
 
         public IActionResult ListDetails()
         {
             ViewBag.Message = "Lista de articulos existentes";
 
-            ViewBag.Articles = s_articles;
+            ViewBag.Articles = articleService.GetArticles();
 
             return View();
         }
@@ -87,42 +79,31 @@ namespace crud_mvc.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            // TODO 4: Busco el articulo seleccionado, esto lo haría el 'service' de articulos
-            ArticleModel articleSelected = s_articles.Find(a => a.Id == id);
-
-            return View(articleSelected);
+            return View(articleService.GetArticle(id));
         }
 
         [HttpPost]
         public IActionResult Edit(ArticleModel article)
         {
-            ArticleModel articleEdit = s_articles.Find(a => a.Id == article.Id);
-
-            if (articleEdit.Equals(article) == true)
+            if (articleService.UpdateArticle(article) == true)
             {
-                ViewBag.MessageEditSuccess = "No se realizaron cambios en el articulo";
+                ViewBag.MessageEditSuccess = "Se ha actualizado el articulo";
             }
             else
             {
-                int indexArticleEdit = s_articles.FindIndex(a => a.Id == article.Id);
-
-                s_articles[indexArticleEdit] = article;
-
-                ViewBag.MessageEditSuccess = "Se ha actualizado el articulo";
+                ViewBag.MessageEditSuccess = "No se realizaron cambios en el articulo";
             }
 
-            ViewBag.Articles = s_articles;
+            ViewBag.Articles = articleService.GetArticles();
 
             return View("ListDetails");
         }
 
         public IActionResult Delete(int id)
         {
-            ArticleModel articleDelete = s_articles.Find(a => a.Id == id);
+            articleService.DeleteArticle(id);
 
-            s_articles.Remove(articleDelete);
-
-            ViewBag.Articles = s_articles;
+            ViewBag.Articles = articleService.GetArticles();
 
             return View("ListDetails");
         }
