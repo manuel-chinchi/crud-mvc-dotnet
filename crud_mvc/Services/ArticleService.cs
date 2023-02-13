@@ -1,4 +1,5 @@
-﻿using crud_mvc.Models;
+﻿using crud_mvc.Data;
+using crud_mvc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,54 +9,75 @@ namespace crud_mvc.Services
 {
     public class ArticleService
     {
-        public static List<ArticleModel> s_articles { get; set; }
-
         public ArticleService()
         {
-            s_articles = new List<ArticleModel>()
-            {
-                new ArticleModel { Id = 1, Name = "Escoba", Category = "Otro", Description = "Chica - 130cm x 4cm", Quantity = 20 },
-                new ArticleModel { Id = 2, Name = "Balde", Category = "Otro", Description = "20cm x 22cm" , Quantity = 20},
-                new ArticleModel { Id = 3, Name = "Consola juegos", Category = "Otro", Description = "Play 2 - usada", Quantity = 10 }
-            };
         }
 
         public List<ArticleModel> GetArticles()
         {
-            return s_articles;
+            using (var db = new InventaryContext())
+            {
+                return db.Articles.ToList();
+            }
         }
 
         public ArticleModel GetArticle(int id)
         {
-            return s_articles.Find(a => a.Id == id);
+            using (var db = new InventaryContext())
+            {
+                return db.Articles.Where(a => a.Id == id).FirstOrDefault();
+            }
         }
 
         public void InsertArticle(ArticleModel article)
         {
-            article.Id = s_articles.Count + 1;
-            s_articles.Add(article);
+            using (var db = new InventaryContext())
+            {
+                db.Articles.Add(article);
+                db.SaveChanges();
+            }
         }
 
         public bool UpdateArticle(ArticleModel article)
         {
-            ArticleModel articleChoose = this.GetArticle(article.Id);
+            #region OLD
+            //ArticleModel articleChoose = this.GetArticle(article.Id);
 
-            if (articleChoose.Equals(article) == true)
+            //if (articleChoose.Equals(article) == true)
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+            //    int articleChooseIndex = Articles.FindIndex(a => a.Id == article.Id);
+            //    Articles[articleChooseIndex] = article;
+            //    return true;
+            //}
+            #endregion
+            int countRows = 0;
+            using (var db = new InventaryContext())
             {
-                return false;
+                db.Articles.Update(article);
+                countRows = db.SaveChanges();
             }
-            else
-            {
-                int articleChooseIndex = s_articles.FindIndex(a => a.Id == article.Id);
-                s_articles[articleChooseIndex] = article;
-                return true;
-            }
+            return countRows > 0 ? true : false;
         }
 
         public bool DeleteArticle(int id)
         {
-            var article = this.GetArticle(id);
-            return s_articles.Remove(article);
+            using (var db = new InventaryContext())
+            {
+                var article = this.GetArticle(id);
+
+                if (article != null)
+                {
+                    db.Articles.Remove(article);
+                    db.SaveChanges();
+
+                    return true;
+                }
+                return false;
+            }
         }
 
         public bool IsValidArticle(ArticleModel article)

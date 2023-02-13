@@ -11,7 +11,7 @@ namespace crud_mvc.Controllers
 {
     public class ArticleController : Controller
     {
-        public static ArticleService articleService { get; set; }
+        public ArticleService articleService { get; set; }
 
         public ArticleController()
         {
@@ -46,8 +46,6 @@ namespace crud_mvc.Controllers
         [HttpPost]
         public IActionResult Create(ArticleModel article)
         {
-            ViewBag.Articles = articleService.GetArticles();
-
             if (articleService.IsValidArticle(article) == true)
             {
                 ViewBag.MessageCreateSuccess = "Se ha agregado el articulo";
@@ -58,6 +56,8 @@ namespace crud_mvc.Controllers
             {
                 ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
             }
+
+            ViewBag.Articles = articleService.GetArticles();
 
             return View("ListDetails");
         }
