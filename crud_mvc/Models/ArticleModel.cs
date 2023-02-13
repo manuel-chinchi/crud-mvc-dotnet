@@ -35,7 +35,7 @@ namespace crud_mvc.Models
             else
             {
                 ArticleModel p = (ArticleModel)article;
-                return (Id == p.Id) && (Name == p.Name) && (Category == p.Category) && (Description == p.Description);
+                return (Id == p.Id) && (Name == p.Name) && (Category == p.Category) && (Description == p.Description) && (Quantity == p.Quantity);
             }
         }
     }
