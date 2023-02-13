@@ -11,15 +11,19 @@ namespace crud_mvc.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        public int Quantity { get; set; }
+        public bool IsEnabled { get; set; }
 
         public ArticleModel() { }
 
-        public ArticleModel(int id, string name, string description, string category)
+        public ArticleModel(int id, string name, string description, string category, int quantity)
         {
             Id = id;
             Name = name;
             Description = description;
             Category = category;
+            Quantity = quantity;
+            IsEnabled = true;
         }
 
         public override bool Equals(object article)

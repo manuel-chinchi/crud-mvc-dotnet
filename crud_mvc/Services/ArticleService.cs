@@ -14,9 +14,9 @@ namespace crud_mvc.Services
         {
             s_articles = new List<ArticleModel>()
             {
-                new ArticleModel { Id = 1, Name = "Escoba", Category = "Otro", Description = "Chica - 130cm x 4cm" },
-                new ArticleModel { Id = 2, Name = "Balde", Category = "Otro", Description = "20cm x 22cm" },
-                new ArticleModel { Id = 3, Name = "Consola juegos", Category = "Otro", Description = "Play 2 - usada - chipeada" }
+                new ArticleModel { Id = 1, Name = "Escoba", Category = "Otro", Description = "Chica - 130cm x 4cm", Quantity = 20 },
+                new ArticleModel { Id = 2, Name = "Balde", Category = "Otro", Description = "20cm x 22cm" , Quantity = 20},
+                new ArticleModel { Id = 3, Name = "Consola juegos", Category = "Otro", Description = "Play 2 - usada", Quantity = 10 }
             };
         }
 

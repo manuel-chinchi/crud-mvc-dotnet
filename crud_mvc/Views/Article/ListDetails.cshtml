@@ -45,6 +45,7 @@
                 <th>Nombre</th>
                 <th>Categoria</th>
                 <th>Descripción</th>
+                <th>Cantidad</th>
                 <th>Acción</th>
             </tr>
         </thead>
@@ -57,6 +58,7 @@
                     <td>@article.Name</td>
                     <td>@article.Category</td>
                     <td>@article.Description</td>
+                    <td>@article.Quantity</td>
                     <td>
                         <form>
                             <button class="btn btn-primary px-3" asp-controller="Article" asp-action="Edit" name="id" value="@article.Id">Editar</button>
