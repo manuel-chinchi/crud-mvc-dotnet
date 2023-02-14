@@ -26,7 +26,7 @@ namespace crud_mvc
         {
             services.AddControllersWithViews();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            //TODO 8: Configuro patrón singleton para controladores
+
             //services.AddSingleton<ArticleController, ArticleController>();
             //services.AddMvc().AddControllersAsServices();
         }
