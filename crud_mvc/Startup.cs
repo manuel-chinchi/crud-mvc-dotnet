@@ -27,8 +27,8 @@ namespace crud_mvc
             services.AddControllersWithViews();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             //TODO 8: Configuro patrón singleton para controladores
-            services.AddSingleton<ArticleController, ArticleController>();
-            services.AddMvc().AddControllersAsServices();
+            //services.AddSingleton<ArticleController, ArticleController>();
+            //services.AddMvc().AddControllersAsServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
