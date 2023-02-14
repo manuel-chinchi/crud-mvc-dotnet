@@ -57,9 +57,7 @@ namespace crud_mvc.Controllers
                 ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
             }
 
-            ViewBag.Articles = articleService.GetArticles();
-
-            return Redirect("ListDetails");
+            return RedirectToAction("ListDetails");
         }
 
         public IActionResult Details(int id)
@@ -71,9 +69,7 @@ namespace crud_mvc.Controllers
         {
             ViewBag.Message = "Lista de articulos existentes";
 
-            ViewBag.Articles = articleService.GetArticles();
-
-            return View();
+            return View(articleService.GetArticles());
         }
 
         [HttpGet]
@@ -94,18 +90,14 @@ namespace crud_mvc.Controllers
                 ViewBag.MessageEditSuccess = "No se realizaron cambios en el articulo";
             }
 
-            ViewBag.Articles = articleService.GetArticles();
-
-            return View("ListDetails");
+            return RedirectToAction("ListDetails");
         }
 
         public IActionResult Delete(int id)
         {
             articleService.DeleteArticle(id);
 
-            ViewBag.Articles = articleService.GetArticles();
-
-            return View("ListDetails");
+            return RedirectToAction("ListDetails");
         }
     }
 }

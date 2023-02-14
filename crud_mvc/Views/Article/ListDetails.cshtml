@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ArticleModel>
+
+@{
     ViewBag.Title = "Lista de articulos";
 }
 
@@ -50,7 +52,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (ArticleModel article in ViewBag.Articles)
+            @foreach (ArticleModel article in Model)
             {
                 // TODO 2: Cargo la lista de articulos en la vista.
                 <tr>
@@ -96,5 +98,5 @@
             }
         </tbody>
     </table>
-    <p>Total: @ViewBag.Articles.Count</p>
+    <p>Total: @Model.Count</p>
 </div>
