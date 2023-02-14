@@ -11,17 +11,24 @@ namespace crud_mvc.Models
         [Key]
         [Range(1, 2000)]
         public int Id { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
+
         [StringLength(100)]
         public string Description { get; set; }
+
         [Required]
         [StringLength(50)]
+
         public string Category { get; set; }
+
         [Required]
         public int Quantity { get; set; }
+
         public bool IsEnabled { get; set; }
+
 
         public ArticleModel() { IsEnabled = true; }
 
