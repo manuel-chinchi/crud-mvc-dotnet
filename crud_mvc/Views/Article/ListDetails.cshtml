@@ -4,33 +4,34 @@
     ViewBag.Title = "Lista de articulos";
 }
 
-@if (ViewBag.MessageCreateSuccess != null)
+@if (TempData["MessageSuccess"] != null)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <p>@ViewBag.MessageCreateSuccess</p>
+        <p>@TempData["MessageSuccess"]</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 }
-@if (ViewBag.MessageEditSuccess != null)
+@if (TempData["MessageWarning"] != null)
 {
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <p>@ViewBag.MessageEditSuccess</p>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <p>@TempData["MessageWarning"]</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 }
-@if (ViewBag.MessageCreateError != null)
+@if (TempData["MessageError"] != null)
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p>@ViewBag.MessageCreateError</p>
+        <p>@TempData["MessageError"]</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 }
+
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
 <div>

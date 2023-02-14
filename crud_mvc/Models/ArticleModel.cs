@@ -21,7 +21,6 @@ namespace crud_mvc.Models
 
         [Required]
         [StringLength(50)]
-
         public string Category { get; set; }
 
         [Required]

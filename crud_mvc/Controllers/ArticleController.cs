@@ -26,7 +26,7 @@ namespace crud_mvc.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Message = "Ingrese los datos del nuevo artículo";
+            ViewBag.Message = "Ingrese los datos del artículo";
 
             string[] categories =
             {
@@ -48,13 +48,13 @@ namespace crud_mvc.Controllers
         {
             if (articleService.IsValidArticle(article) == true)
             {
-                ViewBag.MessageCreateSuccess = "Se ha agregado el articulo";
+                TempData["MessageSuccess"] = "Se ha agregado el artículo.";
 
                 articleService.InsertArticle(article);
             }
             else
             {
-                ViewBag.MessageCreateError = "Error. Todos los campos del articulo deben tener un valor.";
+                TempData["MessageError"] = "Error. Todos los campos del artículo deben tener un valor.";
             }
 
             return RedirectToAction("ListDetails");
@@ -65,16 +65,11 @@ namespace crud_mvc.Controllers
             return View(articleService.GetArticle(id));
         }
 
-        public IActionResult ListDetails()
-        {
-            ViewBag.Message = "Lista de articulos existentes";
-
-            return View(articleService.GetArticles());
-        }
-
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.Message = "Datos del artículo";
+
             return View(articleService.GetArticle(id));
         }
 
@@ -83,11 +78,11 @@ namespace crud_mvc.Controllers
         {
             if (articleService.UpdateArticle(article) == true)
             {
-                ViewBag.MessageEditSuccess = "Se ha actualizado el articulo";
+                TempData["MessageSuccess"] = "Se ha actualizado el artículo";
             }
             else
             {
-                ViewBag.MessageEditSuccess = "No se realizaron cambios en el articulo";
+                TempData["MessageWarning"] = "No se realizaron cambios en el artículo";
             }
 
             return RedirectToAction("ListDetails");
@@ -95,9 +90,18 @@ namespace crud_mvc.Controllers
 
         public IActionResult Delete(int id)
         {
+            TempData["MessageSuccess"] = "Se ha eliminado el artículo";
+
             articleService.DeleteArticle(id);
 
             return RedirectToAction("ListDetails");
+        }
+
+        public IActionResult ListDetails()
+        {
+            ViewBag.Message = "Lista de articulos existentes";
+
+            return View(articleService.GetArticles());
         }
     }
 }
