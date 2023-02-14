@@ -59,7 +59,7 @@ namespace crud_mvc.Controllers
 
             ViewBag.Articles = articleService.GetArticles();
 
-            return View("ListDetails");
+            return Redirect("ListDetails");
         }
 
         public IActionResult Details(int id)
