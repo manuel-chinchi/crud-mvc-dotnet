@@ -39,11 +39,13 @@ namespace crud_mvc.Services
         public bool UpdateArticle(ArticleModel article)
         {
             int countRows = 0;
+
             using (var db = new InventaryContext())
             {
                 db.Articles.Update(article);
                 countRows = db.SaveChanges();
             }
+
             return countRows > 0 ? true : false;
         }
 
