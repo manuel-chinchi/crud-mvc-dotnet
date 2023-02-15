@@ -9,9 +9,7 @@ namespace crud_mvc.Services
 {
     public class ArticleService
     {
-        public ArticleService()
-        {
-        }
+        public ArticleService() { }
 
         public List<ArticleModel> GetArticles()
         {
@@ -40,20 +38,6 @@ namespace crud_mvc.Services
 
         public bool UpdateArticle(ArticleModel article)
         {
-            #region OLD
-            //ArticleModel articleChoose = this.GetArticle(article.Id);
-
-            //if (articleChoose.Equals(article) == true)
-            //{
-            //    return false;
-            //}
-            //else
-            //{
-            //    int articleChooseIndex = Articles.FindIndex(a => a.Id == article.Id);
-            //    Articles[articleChooseIndex] = article;
-            //    return true;
-            //}
-            #endregion
             int countRows = 0;
             using (var db = new InventaryContext())
             {
