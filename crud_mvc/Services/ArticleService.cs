@@ -1,5 +1,6 @@
 ﻿using crud_mvc.Data;
 using crud_mvc.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,10 @@ namespace crud_mvc.Services
         {
             using (var db = new AppDbContext())
             {
-                return db.Articles.ToList();
+                #region NUEVO: Recupera las relaciones con la tabla "categories"
+                var articles = db.Articles.Include(a => a.Category).ToList();
+                return articles;
+                #endregion
             }
         }
 
@@ -23,7 +27,9 @@ namespace crud_mvc.Services
         {
             using (var db = new AppDbContext())
             {
-                return db.Articles.Where(a => a.Id == id).FirstOrDefault();
+                #region NUEVO: Recupera las relaciones con la tabla "categories"
+                return db.Articles.Include(a => a.Category).Where(a => a.Id == id).FirstOrDefault();
+                #endregion
             }
         }
 
@@ -31,8 +37,16 @@ namespace crud_mvc.Services
         {
             using (var db = new AppDbContext())
             {
-                db.Articles.Add(article);
-                db.SaveChanges();
+                #region NUEVO: Agrega solamente la entidad de tipo Article
+                db.Articles.Add(new Article()
+                {
+                    Name = article.Name,
+                    Description = article.Description,
+                    CategoryId = article.CategoryId,
+                    Quantity = article.Quantity
+                });
+                db.SaveChanges(false);
+                #endregion
             }
         }
 
@@ -68,7 +82,7 @@ namespace crud_mvc.Services
 
         public bool IsValidArticle(Article article)
         {
-            return string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Category) || string.IsNullOrEmpty(article.Description) ? false : true;
+            return string.IsNullOrEmpty(article.Name) || article.Category == null || string.IsNullOrEmpty(article.Description) ? false : true;
         }
     }
 }

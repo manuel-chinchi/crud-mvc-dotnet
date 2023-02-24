@@ -13,10 +13,10 @@
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control" name="category">
-                @foreach (var item in ViewBag.Categories)
+            <select class="form-control" name="category.name">
+                @foreach (Category item in ViewBag.Categories)
                 {
-                    <option>@item</option>
+                    <option>@item.Name</option>
                 }
             </select>
         </div>
