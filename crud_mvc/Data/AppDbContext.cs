@@ -23,13 +23,6 @@ namespace crud_mvc.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Article>().HasData
-            (
-                new Article() { Id = 1, Name = "Escoba", Category = "Otro", Description = "1.2m", Quantity = 20, IsEnabled = true },
-                new Article() { Id = 2, Name = "Balde", Category = "Otro", Description = "4l", Quantity = 50, IsEnabled = true },
-                new Article() { Id = 3, Name = "Playstation 2", Category = "Otro", Description = "Sony, usada", Quantity = 5, IsEnabled = true }
-            );
         }
     }
 }
