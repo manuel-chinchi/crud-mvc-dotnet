@@ -26,14 +26,5 @@ namespace crud_mvc.Services
                 return db.Categories.Where(c => c.Id == id).FirstOrDefault();
             }
         }
-
-        public Category GetCategoryByName(string name)
-        {
-            using (var db = new AppDbContext())
-            {
-                return db.Categories.Where(c => c.Name == name).FirstOrDefault();
-            }
-        }
-
     }
 }

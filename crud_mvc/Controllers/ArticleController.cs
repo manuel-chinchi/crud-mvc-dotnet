@@ -39,9 +39,7 @@ namespace crud_mvc.Controllers
         public IActionResult Create(Article article)
         {
             #region Recuperar_Categoria
-            var category = categoryService.GetCategoryByName(article.Category.Name);
-            article.Category = category;
-            article.CategoryId = category.Id;
+            article.Category = categoryService.GetCategory(article.CategoryId);
             #endregion
 
             if (articleService.IsValidArticle(article) == true)
@@ -79,9 +77,7 @@ namespace crud_mvc.Controllers
         public IActionResult Edit(Article article)
         {
             #region Recuperar_Categoria
-            var category = categoryService.GetCategoryByName(article.Category.Name);
-            article.Category = category;
-            article.CategoryId = category.Id;
+            article.Category = categoryService.GetCategory(article.CategoryId);
             #endregion
 
             if (articleService.UpdateArticle(article) == true)

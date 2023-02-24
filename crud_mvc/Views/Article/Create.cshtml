@@ -9,14 +9,14 @@
     <form asp-action="Create">
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" class="form-control" name="name"/>
+            <input type="text" class="form-control" name="name" />
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control" name="category.name">
+            <select class="form-control" name="categoryid">
                 @foreach (Category item in ViewBag.Categories)
                 {
-                    <option>@item.Name</option>
+                    <option value="@item.Id">@item.Name</option>
                 }
             </select>
         </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label>Cantidad</label>
-            <input type="number" class="form-control" name="quantity"/>
+            <input type="number" class="form-control" name="quantity" />
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Guardar</button>
