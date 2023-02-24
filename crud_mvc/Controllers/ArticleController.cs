@@ -38,7 +38,7 @@ namespace crud_mvc.Controllers
         [HttpPost]
         public IActionResult Create(Article article)
         {
-            #region RefactorDb
+            #region Recuperar_Categoria
             var category = categoryService.GetCategoryByName(article.Category.Name);
             article.Category = category;
             article.CategoryId = category.Id;
@@ -46,13 +46,15 @@ namespace crud_mvc.Controllers
 
             if (articleService.IsValidArticle(article) == true)
             {
-                TempData["MessageSuccess"] = "Se ha agregado el artículo.";
+                TempData["AlertMessage"] = "Se ha agregado el artículo.";
+                TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
                 articleService.InsertArticle(article);
             }
             else
             {
-                TempData["MessageError"] = "Error. Todos los campos del artículo deben tener un valor.";
+                TempData["AlertMessage"] = "Error. Todos los campos del artículo deben tener un valor.";
+                TempData["AlertStyle"] = AlertConstants.WARNING;
             }
 
             return RedirectToAction("ListDetails");
@@ -76,7 +78,7 @@ namespace crud_mvc.Controllers
         [HttpPost]
         public IActionResult Edit(Article article)
         {
-            #region RefactorDb
+            #region Recuperar_Categoria
             var category = categoryService.GetCategoryByName(article.Category.Name);
             article.Category = category;
             article.CategoryId = category.Id;
@@ -84,11 +86,13 @@ namespace crud_mvc.Controllers
 
             if (articleService.UpdateArticle(article) == true)
             {
-                TempData["MessageSuccess"] = "Se ha actualizado el artículo";
+                TempData["AlertMessage"] = "Se ha actualizado el artículo";
+                TempData["AlertStyle"] = AlertConstants.SUCCESS;
             }
             else
             {
                 TempData["MessageWarning"] = "No se realizaron cambios en el artículo";
+                TempData["AlertStyle"] = AlertConstants.WARNING;
             }
 
             return RedirectToAction("ListDetails");
@@ -97,6 +101,7 @@ namespace crud_mvc.Controllers
         public IActionResult Delete(int id)
         {
             TempData["MessageSuccess"] = "Se ha eliminado el artículo";
+            TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
             articleService.DeleteArticle(id);
 

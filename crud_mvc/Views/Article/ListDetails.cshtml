@@ -4,28 +4,10 @@
     ViewBag.Title = "Lista de articulos";
 }
 
-@if (TempData["MessageSuccess"] != null)
+@if (TempData["AlertMessage"] != null)
 {
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <p>@TempData["MessageSuccess"]</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
-@if (TempData["MessageWarning"] != null)
-{
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <p>@TempData["MessageWarning"]</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
-@if (TempData["MessageError"] != null)
-{
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p>@TempData["MessageError"]</p>
+    <div class="@TempData["AlertStyle"]" role="alert">
+        <p>@TempData["AlertMessage"]</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
