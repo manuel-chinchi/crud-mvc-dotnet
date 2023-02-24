@@ -45,7 +45,7 @@ namespace crud_mvc.Services
                     CategoryId = article.CategoryId,
                     Quantity = article.Quantity
                 });
-                db.SaveChanges(false);
+                db.SaveChanges();
                 #endregion
             }
         }
