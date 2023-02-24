@@ -11,7 +11,7 @@ namespace crud_mvc.Services
     {
         public ArticleService() { }
 
-        public List<ArticleModel> GetArticles()
+        public List<Article> GetArticles()
         {
             using (var db = new InventaryContext())
             {
@@ -19,7 +19,7 @@ namespace crud_mvc.Services
             }
         }
 
-        public ArticleModel GetArticle(int id)
+        public Article GetArticle(int id)
         {
             using (var db = new InventaryContext())
             {
@@ -27,7 +27,7 @@ namespace crud_mvc.Services
             }
         }
 
-        public void InsertArticle(ArticleModel article)
+        public void InsertArticle(Article article)
         {
             using (var db = new InventaryContext())
             {
@@ -36,7 +36,7 @@ namespace crud_mvc.Services
             }
         }
 
-        public bool UpdateArticle(ArticleModel article)
+        public bool UpdateArticle(Article article)
         {
             int countRows = 0;
 
@@ -66,7 +66,7 @@ namespace crud_mvc.Services
             }
         }
 
-        public bool IsValidArticle(ArticleModel article)
+        public bool IsValidArticle(Article article)
         {
             return string.IsNullOrEmpty(article.Name) || string.IsNullOrEmpty(article.Category) || string.IsNullOrEmpty(article.Description) ? false : true;
         }

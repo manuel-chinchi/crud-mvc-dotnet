@@ -1,4 +1,4 @@
-﻿@model List<ArticleModel>
+﻿@model List<Article>
 
 @{
     ViewBag.Title = "Lista de articulos";
@@ -53,7 +53,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (ArticleModel article in Model)
+            @foreach (Article article in Model)
             {
                 <tr>
                     <th scope="row">@article.Id</th>

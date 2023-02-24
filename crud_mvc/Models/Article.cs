@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace crud_mvc.Models
 {
-    public class ArticleModel
+    public class Article
     {
         [Key]
         [Range(1, 2000)]
@@ -29,9 +29,9 @@ namespace crud_mvc.Models
         public bool IsEnabled { get; set; }
 
 
-        public ArticleModel() { IsEnabled = true; }
+        public Article() { IsEnabled = true; }
 
-        public ArticleModel(int id, string name, string description, string category, int quantity)
+        public Article(int id, string name, string description, string category, int quantity)
         {
             Id = id;
             Name = name;
@@ -49,7 +49,7 @@ namespace crud_mvc.Models
             }
             else
             {
-                ArticleModel p = (ArticleModel)article;
+                Article p = (Article)article;
                 return (Id == p.Id) && (Name == p.Name) && (Category == p.Category) && (Description == p.Description) && (Quantity == p.Quantity);
             }
         }

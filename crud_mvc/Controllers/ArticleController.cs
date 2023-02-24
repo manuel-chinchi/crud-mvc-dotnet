@@ -44,7 +44,7 @@ namespace crud_mvc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ArticleModel article)
+        public IActionResult Create(Article article)
         {
             if (articleService.IsValidArticle(article) == true)
             {
@@ -74,7 +74,7 @@ namespace crud_mvc.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(ArticleModel article)
+        public IActionResult Edit(Article article)
         {
             if (articleService.UpdateArticle(article) == true)
             {

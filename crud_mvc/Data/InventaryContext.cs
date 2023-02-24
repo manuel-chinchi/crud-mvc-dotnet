@@ -10,7 +10,7 @@ namespace crud_mvc.Data
 {
     public class InventaryContext : DbContext
     {
-        public DbSet<ArticleModel> Articles { get; set; }
+        public DbSet<Article> Articles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,11 +24,11 @@ namespace crud_mvc.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<ArticleModel>().HasData
+            modelBuilder.Entity<Article>().HasData
             (
-                new ArticleModel() { Id = 1, Name = "Escoba", Category = "Otro", Description = "1.2m", Quantity = 20, IsEnabled = true },
-                new ArticleModel() { Id = 2, Name = "Balde", Category = "Otro", Description = "4l", Quantity = 50, IsEnabled = true },
-                new ArticleModel() { Id = 3, Name = "Playstation 2", Category = "Otro", Description = "Sony, usada", Quantity = 5, IsEnabled = true }
+                new Article() { Id = 1, Name = "Escoba", Category = "Otro", Description = "1.2m", Quantity = 20, IsEnabled = true },
+                new Article() { Id = 2, Name = "Balde", Category = "Otro", Description = "4l", Quantity = 50, IsEnabled = true },
+                new Article() { Id = 3, Name = "Playstation 2", Category = "Otro", Description = "Sony, usada", Quantity = 5, IsEnabled = true }
             );
         }
     }
