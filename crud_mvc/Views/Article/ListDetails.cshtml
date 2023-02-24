@@ -1,31 +1,13 @@
-﻿@model List<ArticleModel>
+﻿@model List<Article>
 
 @{
     ViewBag.Title = "Lista de articulos";
 }
 
-@if (TempData["MessageSuccess"] != null)
+@if (TempData["AlertMessage"] != null)
 {
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <p>@TempData["MessageSuccess"]</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
-@if (TempData["MessageWarning"] != null)
-{
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <p>@TempData["MessageWarning"]</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
-@if (TempData["MessageError"] != null)
-{
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p>@TempData["MessageError"]</p>
+    <div class="@TempData["AlertStyle"]" role="alert">
+        <p>@TempData["AlertMessage"]</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -53,12 +35,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (ArticleModel article in Model)
+            @foreach (Article article in Model)
             {
                 <tr>
                     <th scope="row">@article.Id</th>
                     <td>@article.Name</td>
-                    <td>@article.Category</td>
+                    <td>@article.Category.Name</td>
                     <td>@article.Description</td>
                     <td>@article.Quantity</td>
                     <td>

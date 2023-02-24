@@ -12,10 +12,12 @@ namespace crud_mvc.Controllers
     public class ArticleController : Controller
     {
         public ArticleService articleService { get; set; }
+        public CategoryService categoryService { get; set; }
 
         public ArticleController()
         {
             articleService = new ArticleService();
+            categoryService = new CategoryService();
         }
 
         public IActionResult Index()
@@ -28,33 +30,31 @@ namespace crud_mvc.Controllers
         {
             ViewBag.Message = "Ingrese los datos del artículo";
 
-            string[] categories =
-            {
-                "",
-                "Muebles",
-                "Electrodomesticos",
-                "Herramientas",
-                "Limpieza",
-                "Otro"
-            };
-
-            ViewBag.Categories = categories;
+            ViewBag.Categories = categoryService.GetCategories();
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(ArticleModel article)
+        public IActionResult Create(Article article)
         {
+            #region Recuperar_Categoria
+            var category = categoryService.GetCategoryByName(article.Category.Name);
+            article.Category = category;
+            article.CategoryId = category.Id;
+            #endregion
+
             if (articleService.IsValidArticle(article) == true)
             {
-                TempData["MessageSuccess"] = "Se ha agregado el artículo.";
+                TempData["AlertMessage"] = "Se ha agregado el artículo.";
+                TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
                 articleService.InsertArticle(article);
             }
             else
             {
-                TempData["MessageError"] = "Error. Todos los campos del artículo deben tener un valor.";
+                TempData["AlertMessage"] = "Error. Todos los campos del artículo deben tener un valor.";
+                TempData["AlertStyle"] = AlertConstants.WARNING;
             }
 
             return RedirectToAction("ListDetails");
@@ -70,19 +70,29 @@ namespace crud_mvc.Controllers
         {
             ViewBag.Message = "Datos del artículo";
 
+            ViewBag.Categories = categoryService.GetCategories();
+
             return View(articleService.GetArticle(id));
         }
 
         [HttpPost]
-        public IActionResult Edit(ArticleModel article)
+        public IActionResult Edit(Article article)
         {
+            #region Recuperar_Categoria
+            var category = categoryService.GetCategoryByName(article.Category.Name);
+            article.Category = category;
+            article.CategoryId = category.Id;
+            #endregion
+
             if (articleService.UpdateArticle(article) == true)
             {
-                TempData["MessageSuccess"] = "Se ha actualizado el artículo";
+                TempData["AlertMessage"] = "Se ha actualizado el artículo";
+                TempData["AlertStyle"] = AlertConstants.SUCCESS;
             }
             else
             {
                 TempData["MessageWarning"] = "No se realizaron cambios en el artículo";
+                TempData["AlertStyle"] = AlertConstants.WARNING;
             }
 
             return RedirectToAction("ListDetails");
@@ -91,6 +101,7 @@ namespace crud_mvc.Controllers
         public IActionResult Delete(int id)
         {
             TempData["MessageSuccess"] = "Se ha eliminado el artículo";
+            TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
             articleService.DeleteArticle(id);
 
