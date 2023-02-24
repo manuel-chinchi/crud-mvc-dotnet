@@ -7,7 +7,7 @@ using crud_mvc.Data;
 
 namespace crud_mvc.Migrations
 {
-    [DbContext(typeof(InventaryContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class InventaryContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

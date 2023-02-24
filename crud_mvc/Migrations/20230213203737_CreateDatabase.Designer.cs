@@ -8,7 +8,7 @@ using crud_mvc.Data;
 
 namespace crud_mvc.Migrations
 {
-    [DbContext(typeof(InventaryContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20230213203737_CreateDatabase")]
     partial class CreateDatabase
     {
