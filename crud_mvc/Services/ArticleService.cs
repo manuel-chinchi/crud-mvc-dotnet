@@ -17,8 +17,7 @@ namespace crud_mvc.Services
             using (var db = new AppDbContext())
             {
                 #region NUEVO: Recupera las relaciones con la tabla "categories"
-                var articles = db.Articles.Include(a => a.Category).ToList();
-                return articles;
+                return db.Articles.Include(a => a.Category).ToList();
                 #endregion
             }
         }
