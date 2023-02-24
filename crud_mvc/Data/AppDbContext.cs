@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace crud_mvc.Data
 {
-    public class InventaryContext : DbContext
+    public class AppDbContext : DbContext
     {
         public DbSet<Article> Articles { get; set; }
 

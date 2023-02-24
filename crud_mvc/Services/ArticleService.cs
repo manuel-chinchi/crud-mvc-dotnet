@@ -13,7 +13,7 @@ namespace crud_mvc.Services
 
         public List<Article> GetArticles()
         {
-            using (var db = new InventaryContext())
+            using (var db = new AppDbContext())
             {
                 return db.Articles.ToList();
             }
@@ -21,7 +21,7 @@ namespace crud_mvc.Services
 
         public Article GetArticle(int id)
         {
-            using (var db = new InventaryContext())
+            using (var db = new AppDbContext())
             {
                 return db.Articles.Where(a => a.Id == id).FirstOrDefault();
             }
@@ -29,7 +29,7 @@ namespace crud_mvc.Services
 
         public void InsertArticle(Article article)
         {
-            using (var db = new InventaryContext())
+            using (var db = new AppDbContext())
             {
                 db.Articles.Add(article);
                 db.SaveChanges();
@@ -40,7 +40,7 @@ namespace crud_mvc.Services
         {
             int countRows = 0;
 
-            using (var db = new InventaryContext())
+            using (var db = new AppDbContext())
             {
                 db.Articles.Update(article);
                 countRows = db.SaveChanges();
@@ -51,7 +51,7 @@ namespace crud_mvc.Services
 
         public bool DeleteArticle(int id)
         {
-            using (var db = new InventaryContext())
+            using (var db = new AppDbContext())
             {
                 var article = this.GetArticle(id);
 
