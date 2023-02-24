@@ -1,5 +1,6 @@
 ﻿using crud_mvc.Data;
 using crud_mvc.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace crud_mvc.Services
         {
             using (var db = new AppDbContext())
             {
-                return db.Categories.ToList();
+                return db.Categories.Include(c => c.Articles).ToList();
             }
         }
 
