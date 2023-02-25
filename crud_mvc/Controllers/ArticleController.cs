@@ -100,7 +100,7 @@ namespace crud_mvc.Controllers
 
         public IActionResult ListDetails()
         {
-            ViewBag.Message = "Lista de articulos existentes";
+            ViewBag.Message = "Lista de artículos existentes";
 
             return View(articleService.GetArticles());
         }

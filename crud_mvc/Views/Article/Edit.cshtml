@@ -1,12 +1,12 @@
-﻿@model Article
+﻿@model crud_mvc.Models.Article
 
 @{
-    ViewBag.Title = "Editar articulo";
+    ViewBag.Title = "Editar artículo";
 }
 
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
-<br />
+<hr />
 <div style="width: 300px;">
     <form asp-action="Edit">
         <input hidden value="@Model.Id" asp-for="Id" />
