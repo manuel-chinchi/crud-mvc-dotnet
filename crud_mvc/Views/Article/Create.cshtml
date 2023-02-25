@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Article
+
+@{
     ViewBag.Title = "Crear articulo";
 }
 
@@ -8,12 +10,13 @@
 <div style="width: 300px;">
     <form asp-action="Create">
         <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" name="name" />
+            <label asp-for="Name">Nombre</label>
+            <input class="form-control" type="text" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control" name="categoryid">
+            <select class="form-control" asp-for="CategoryId">
                 @foreach (Category item in ViewBag.Categories)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -21,14 +24,20 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Descripción</label>
-            <textarea typeof="text" class="form-control" name="description"></textarea>
+            <label asp-for="Description">Descripción</label>
+            <textarea typeof="text" class="form-control" asp-for="Description"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
         </div>
         <div class="form-group">
-            <label>Cantidad</label>
-            <input type="number" class="form-control" name="quantity" />
+            <label asp-for="Quantity">Cantidad</label>
+            <input class="form-control" type="number" asp-for="Quantity" />
+            <span class="text-danger" asp-validation-for="Quantity"></span>
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,4 +1,7 @@
 using crud_mvc.Controllers;
+using crud_mvc.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +32,15 @@ namespace crud_mvc
 
             //services.AddSingleton<ArticleController, ArticleController>();
             //services.AddMvc().AddControllersAsServices();
+
+            #region Configuracion_FluentValidation
+            services.AddControllers().AddFluentValidation(fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<ArticleValidator>();
+                    fv.DisableDataAnnotationsValidation = true;
+                }
+            );
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,37 +9,43 @@
 <br />
 <div style="width: 300px;">
     <form asp-action="Edit">
-        <input hidden value="@Model.Id" name="id" />
-        <input hidden value="@Model.CategoryId" name="categoryid" />
+        <input hidden value="@Model.Id" asp-for="Id" />
         <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" value="@Model.Name" name="name" />
+            <label asp-for="Name">Nombre</label>
+            <input type="text" class="form-control" value="@Model.Name" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control" name="category.name">
+            <select class="form-control" asp-for="CategoryId">
                 @foreach (Category item in ViewBag.Categories)
                 {
                     if (item.Name == Model.Category.Name)
                     {
-                        <option selected>@item.Name</option>
+                        <option value="@item.Id" selected>@item.Name</option>
                     }
                     else
                     {
-                        <option>@item.Name</option>
+                        <option value="@item.Id">@item.Name</option>
                     }
                 }
             </select>
         </div>
         <div class="form-group">
-            <label>Descripción</label>
-            <textarea typeof="text" class="form-control" name="description">@Model.Description</textarea>
+            <label asp-for="Description">Descripción</label>
+            <textarea typeof="text" class="form-control" asp-for="Description">@Model.Description</textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
         </div>
         <div class="form-group">
-            <label>Cantidad</label>
-            <input type="number" class="form-control" value="@Model.Quantity" name="quantity" />
+            <label asp-for="Quantity">Cantidad</label>
+            <input type="number" class="form-control" value="@Model.Quantity" asp-for="Quantity" />
+            <span class="text-danger" asp-validation-for="Quantity"></span>
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 </div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
