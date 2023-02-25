@@ -90,7 +90,7 @@ namespace crud_mvc.Controllers
 
         public IActionResult Delete(int id)
         {
-            TempData["MessageSuccess"] = "Se ha eliminado el artículo";
+            TempData["AlertMessage"] = "Se ha eliminado el artículo";
             TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
             articleService.DeleteArticle(id);

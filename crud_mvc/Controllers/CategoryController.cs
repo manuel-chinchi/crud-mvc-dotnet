@@ -76,7 +76,7 @@ namespace crud_mvc.Controllers
         // GET: CategoryController/Delete/5
         public IActionResult Delete(int id)
         {
-            TempData["MessageSuccess"] = "Se ha eliminado la categoría.";
+            TempData["AlertMessage"] = "Se ha eliminado la categoría.";
             TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
             categoryService.DeleteCategory(id);
