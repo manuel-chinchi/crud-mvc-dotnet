@@ -29,7 +29,6 @@ namespace crud_mvc.Controllers
         public IActionResult Create()
         {
             ViewBag.Message = "Ingrese los datos del artículo";
-
             ViewBag.Categories = categoryService.GetCategories();
 
             return View();
@@ -42,12 +41,12 @@ namespace crud_mvc.Controllers
             article.Category = categoryService.GetCategory(article.CategoryId);
             #endregion
 
-            if (articleService.IsValidArticle(article) == true)
+            if (ModelState.IsValid)
             {
+                articleService.InsertArticle(article);
+
                 TempData["AlertMessage"] = "Se ha agregado el artículo.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
-
-                articleService.InsertArticle(article);
             }
             else
             {
@@ -67,7 +66,6 @@ namespace crud_mvc.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Message = "Datos del artículo";
-
             ViewBag.Categories = categoryService.GetCategories();
 
             return View(articleService.GetArticle(id));
@@ -80,8 +78,10 @@ namespace crud_mvc.Controllers
             article.Category = categoryService.GetCategory(article.CategoryId);
             #endregion
 
-            if (articleService.UpdateArticle(article) == true)
+            if (ModelState.IsValid)
             {
+                articleService.UpdateArticle(article);
+
                 TempData["AlertMessage"] = "Se ha actualizado el artículo";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
             }

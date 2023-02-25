@@ -78,10 +78,5 @@ namespace crud_mvc.Services
                 return false;
             }
         }
-
-        public bool IsValidArticle(Article article)
-        {
-            return string.IsNullOrEmpty(article.Name) || article.Category == null || string.IsNullOrEmpty(article.Description) ? false : true;
-        }
     }
 }
