@@ -27,5 +27,32 @@ namespace crud_mvc.Services
                 return db.Categories.Where(c => c.Id == id).FirstOrDefault();
             }
         }
+
+        public void InsertCategory(Category category)
+        {
+            using (var db = new AppDbContext())
+            {
+                db.Categories.Add(new Category() { Name = category.Name });
+                db.SaveChanges();
+            }
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            using (var db = new AppDbContext())
+            {
+                var category = this.GetCategory(id);
+
+                if (category != null)
+                {
+                    db.Categories.Remove(category);
+                    db.SaveChanges();
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
     }
 }

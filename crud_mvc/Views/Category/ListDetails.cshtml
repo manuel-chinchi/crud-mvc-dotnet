@@ -1,0 +1,81 @@
+﻿@model IEnumerable<crud_mvc.Models.Category>
+
+@{
+    ViewData["Title"] = "Lista de categorías";
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="@TempData["AlertStyle"]" role="alert">
+        <p>@TempData["AlertMessage"]</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<h3>@ViewBag.Title</h3>
+<p>@ViewBag.Message</p>
+<div>
+    <a class="btn btn-success px-3" asp-controller="Category" asp-action="Create">Agregar</a>
+</div>
+<br />
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="row">#</th>
+                <th>Nombre</th>
+                <th>Articulos relacionados</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Category category in Model)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>@category.Articles.Count</td>
+                    @if (category.Articles.Count == 0)
+                    {
+                        <td>
+                            <!-- Button trigger modal -->
+                            <a class="btn btn-danger text-white" data-toggle="modal" data-target="#modal_delete_@{@category.Id}" id="inputTrigger">Eliminar</a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal_delete_@{@category.Id}" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">
+                                                Borrar producto
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Desea eliminar el producto <strong>@category.Name</strong>?
+                                        </div>
+                                        <br />
+                                        <form>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button class="btn btn-primary" asp-controller="Category" asp-action="Delete" name="id" value="@category.Id">Aceptar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>No disponible</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Total: @Model.Count()</p>
+</div>
