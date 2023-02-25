@@ -47,14 +47,11 @@ namespace crud_mvc.Controllers
 
                 TempData["AlertMessage"] = "Se ha agregado el artículo.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
-            }
-            else
-            {
-                TempData["AlertMessage"] = "Error. Todos los campos del artículo deben tener un valor.";
-                TempData["AlertStyle"] = AlertConstants.WARNING;
+
+                return RedirectToAction("ListDetails");
             }
 
-            return RedirectToAction("ListDetails");
+            return View();
         }
 
         public IActionResult Details(int id)
@@ -84,14 +81,11 @@ namespace crud_mvc.Controllers
 
                 TempData["AlertMessage"] = "Se ha actualizado el artículo";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
-            }
-            else
-            {
-                TempData["MessageWarning"] = "No se realizaron cambios en el artículo";
-                TempData["AlertStyle"] = AlertConstants.WARNING;
+
+                return RedirectToAction("ListDetails");
             }
 
-            return RedirectToAction("ListDetails");
+            return View();
         }
 
         public IActionResult Delete(int id)
