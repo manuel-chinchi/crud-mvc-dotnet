@@ -34,12 +34,12 @@ namespace crud_mvc
             //services.AddMvc().AddControllersAsServices();
 
             #region Configuracion_FluentValidation
-            services.AddControllers().AddFluentValidation(fv =>
-                {
-                    fv.RegisterValidatorsFromAssemblyContaining<ArticleValidator>();
-                    fv.DisableDataAnnotationsValidation = true;
-                }
-            );
+            services.AddControllers();
+            services.AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblyContaining<ArticleValidator>();
+                options.DisableDataAnnotationsValidation = true;
+            });
             #endregion
         }
 
