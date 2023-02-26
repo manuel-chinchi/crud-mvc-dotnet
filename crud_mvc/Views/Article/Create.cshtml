@@ -11,12 +11,12 @@
     <form asp-action="Create">
         <div class="form-group">
             <label asp-for="Name">Nombre</label>
-            <input class="form-control" type="text" asp-for="Name" />
+            <input class="form-control form-control-sm" type="text" asp-for="Name" />
             <span class="text-danger" asp-validation-for="Name"></span>
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <select class="form-control" asp-for="CategoryId">
+            <select class="form-control form-control-sm" asp-for="CategoryId">
                 @foreach (Category item in ViewBag.Categories)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -25,16 +25,16 @@
         </div>
         <div class="form-group">
             <label asp-for="Description">Descripción</label>
-            <textarea typeof="text" class="form-control" asp-for="Description"></textarea>
+            <textarea typeof="text" class="form-control form-control-sm" asp-for="Description"></textarea>
             <span class="text-danger" asp-validation-for="Description"></span>
         </div>
         <div class="form-group">
             <label asp-for="Quantity">Cantidad</label>
-            <input class="form-control" type="number" asp-for="Quantity" />
+            <input class="form-control form-control-sm" type="number" asp-for="Quantity" />
             <span class="text-danger" asp-validation-for="Quantity"></span>
         </div>
         <br />
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
     </form>
 </div>
 

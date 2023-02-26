@@ -18,7 +18,7 @@
 <p>@ViewBag.Message</p>
 <div>
     <form>
-        <button type="submit" class="btn btn-success px-3" asp-controller="Article" asp-action="Create">Agregar</button>
+        <button type="submit" class="btn btn-success btn-sm px-3" asp-controller="Article" asp-action="Create">Agregar</button>
     </form>
 </div>
 <br />
@@ -43,12 +43,12 @@
                     <td>@article.Category.Name</td>
                     <td>@article.Description</td>
                     <td>@article.Quantity</td>
-                    <td>
+                    <td class="py-1">
                         <form>
-                            <button class="btn btn-primary px-3" asp-controller="Article" asp-action="Edit" name="id" value="@article.Id">Editar</button>
-                            <button class="btn btn-success" asp-controller="Article" asp-action="Details" name="id" value="@article.Id">Detalles</button>
+                            <button class="btn btn-primary btn-sm px-3" asp-controller="Article" asp-action="Edit" name="id" value="@article.Id">Editar</button>
+                            <button class="btn btn-success btn-sm" asp-controller="Article" asp-action="Details" name="id" value="@article.Id">Detalles</button>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_delete_@{@article.Id}" id="inputTrigger">Eliminar</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_delete_@{@article.Id}" id="inputTrigger">Eliminar</button>
                         </form>
                         <!-- Modal -->
                         <div class="modal fade" id="modal_delete_@{@article.Id}" tabindex="-1" role="dialog" aria-hidden="true">
@@ -68,8 +68,8 @@
                                     <br />
                                     <form>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button class="btn btn-primary" asp-controller="Article" asp-action="Delete" name="id" value="@article.Id">Aceptar</button>
+                                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                                            <button class="btn btn-primary btn-sm" asp-controller="Article" asp-action="Delete" name="id" value="@article.Id">Aceptar</button>
                                         </div>
                                     </form>
                                 </div>

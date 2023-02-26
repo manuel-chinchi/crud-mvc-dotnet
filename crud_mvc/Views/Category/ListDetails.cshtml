@@ -17,7 +17,7 @@
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
 <div>
-    <a class="btn btn-success px-3" asp-controller="Category" asp-action="Create">Agregar</a>
+    <a class="btn btn-success btn-sm px-3" asp-controller="Category" asp-action="Create">Agregar</a>
 </div>
 <br />
 <div>
@@ -39,9 +39,9 @@
                     <td>@category.Articles.Count</td>
                     @if (category.Articles.Count == 0)
                     {
-                        <td>
+                        <td class="py-1">
                             <!-- Button trigger modal -->
-                            <a class="btn btn-danger text-white" data-toggle="modal" data-target="#modal_delete_@{@category.Id}" id="inputTrigger">Eliminar</a>
+                            <a class="btn btn-danger btn-sm text-white" data-toggle="modal" data-target="#modal_delete_@{@category.Id}" id="inputTrigger">Eliminar</a>
                             <!-- Modal -->
                             <div class="modal fade" id="modal_delete_@{@category.Id}" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -60,8 +60,8 @@
                                         <br />
                                         <form>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button class="btn btn-primary" asp-controller="Category" asp-action="Delete" name="id" value="@category.Id">Aceptar</button>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                                                <button class="btn btn-primary btn-sm" asp-controller="Category" asp-action="Delete" name="id" value="@category.Id">Aceptar</button>
                                             </div>
                                         </form>
                                     </div>
@@ -71,7 +71,7 @@
                     }
                     else
                     {
-                        <td>No disponible</td>
+                        <td class="py-1">No disponible</td>
                     }
                 </tr>
             }
