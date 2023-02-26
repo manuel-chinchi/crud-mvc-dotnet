@@ -54,5 +54,15 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <!-- #region jquery-datatables configuration -->
+    <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('table').DataTable();
+        });
+    </script>
+    <!-- #endregion -->
 </body>
 </html>
