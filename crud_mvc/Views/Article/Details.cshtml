@@ -10,21 +10,21 @@
     <form>
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" class="form-control" value="@Model.Name" readonly />
+            <input type="text" class="form-control form-control-sm" value="@Model.Name" readonly />
         </div>
         <div class="form-group">
             <label>Categoría</label>
-            <input type="text" class="form-control" value="@Model.Category" readonly />
+            <input type="text" class="form-control form-control-sm" value="@Model.Category" readonly />
         </div>
         <div class="form-group">
             <label>Descripción</label>
-            <textarea typeof="text" class="form-control" readonly>@Model.Description</textarea>
+            <textarea typeof="text" class="form-control form-control-sm" readonly>@Model.Description</textarea>
         </div>
         <div class="form-group">
             <label>Cantidad</label>
-            <input type="number" class="form-control" value="@Model.Quantity" readonly/>
+            <input type="number" class="form-control form-control-sm" value="@Model.Quantity" readonly/>
         </div>
         <br />
-        <button type="submit" class="btn btn-secondary" asp-controller="Article" asp-action="ListDetails">Volver</button>
+        <button type="submit" class="btn btn-secondary btn-sm" asp-controller="Article" asp-action="ListDetails">Volver</button>
     </form>
 </div>
