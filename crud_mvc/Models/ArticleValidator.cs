@@ -18,7 +18,7 @@ namespace crud_mvc.Models
 
             // Description property
             RuleFor(model => model.Description).NotEmpty().WithMessage("'Descripción' no puede ser vacío.");
-            RuleFor(model => model.Description).MaximumLength(50);
+            RuleFor(model => model.Description).MaximumLength(50).WithMessage("'Descripción' no puede contener más de 50 carácteres.");
 
             // IsEnabled property
             RuleFor(model => model.IsEnabled).Equal(true);
