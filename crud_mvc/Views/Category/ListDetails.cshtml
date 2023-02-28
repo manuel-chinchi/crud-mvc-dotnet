@@ -4,15 +4,7 @@
     ViewData["Title"] = "Lista de categorías";
 }
 
-@if (TempData["AlertMessage"] != null)
-{
-    <div class="@TempData["AlertStyle"]" role="alert">
-        <p>@TempData["AlertMessage"]</p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
+<partial name="_AlertNotify"/>
 
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
