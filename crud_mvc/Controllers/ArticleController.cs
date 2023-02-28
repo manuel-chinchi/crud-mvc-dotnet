@@ -37,9 +37,7 @@ namespace crud_mvc.Controllers
         [HttpPost]
         public IActionResult Create(Article article)
         {
-            #region Recuperar_Categoria
             article.Category = categoryService.GetCategory(article.CategoryId);
-            #endregion
 
             if (ModelState.IsValid)
             {
@@ -71,9 +69,7 @@ namespace crud_mvc.Controllers
         [HttpPost]
         public IActionResult Edit(Article article)
         {
-            #region Recuperar_Categoria
             article.Category = categoryService.GetCategory(article.CategoryId);
-            #endregion
 
             if (ModelState.IsValid)
             {
