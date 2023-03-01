@@ -38,11 +38,12 @@
                     <td class="py-1">
                         <form>
                             <button class="btn btn-primary btn-sm px-3" asp-controller="Article" asp-action="Edit" name="id" value="@article.Id">Editar</button>
-                            <button class="btn btn-success btn-sm" asp-controller="Article" asp-action="Details" name="id" value="@article.Id">Detalles</button>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_delete_@{@article.Id}" id="inputTrigger">Eliminar</button>
+                            <!-- Button triger modal 'Details' -->
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal_details_@{@article.Id}">Detalles</button>
+                            <!-- Button trigger modal 'Delete' -->
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_delete_@{@article.Id}">Eliminar</button>
                         </form>
-                        <!-- Modal -->
+                        <!-- Modal 'Delete' -->
                         <div class="modal fade" id="modal_delete_@{@article.Id}" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -67,6 +68,43 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Modal 'Details' -->
+                        <div class="modal fade" id="modal_details_@{@article.Id}" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Detalles de categoría</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control form-control-sm" value="@article.Name" readonly />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Categoría</label>
+                                                <input type="text" class="form-control form-control-sm" value="@article.Category.Name" readonly />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Descripción</label>
+                                                <textarea typeof="text" class="form-control form-control-sm" readonly>@article.Description</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Cantidad</label>
+                                                <input type="number" class="form-control form-control-sm" value="@article.Quantity" readonly />
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </td>
                 </tr>
             }

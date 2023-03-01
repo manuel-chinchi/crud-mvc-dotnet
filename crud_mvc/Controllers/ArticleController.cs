@@ -52,11 +52,6 @@ namespace crud_mvc.Controllers
             return View();
         }
 
-        public IActionResult Details(int id)
-        {
-            return View(articleService.GetArticle(id));
-        }
-
         [HttpGet]
         public IActionResult Edit(int id)
         {
