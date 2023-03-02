@@ -23,25 +23,21 @@ namespace crud_mvc.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            #region Config_Articles
+            #region Configure_Articles
             modelBuilder.Entity<Article>().ToTable("articles");
             modelBuilder.Entity<Article>().HasKey(a => a.Id);
             modelBuilder.Entity<Article>().Property(a => a.Name).HasMaxLength(50).IsRequired();
             modelBuilder.Entity<Article>().Property(a => a.Description).HasMaxLength(50);
             #endregion
 
-            #region Config_Categories
+            #region Configure_Categories
             modelBuilder.Entity<Category>().ToTable("categories");
             modelBuilder.Entity<Category>().HasKey(c => c.Id);
             modelBuilder.Entity<Category>().Property(c => c.Name).HasMaxLength(50).IsRequired();
             #endregion
 
-            #region SetCategories
-            modelBuilder.Entity<Category>().HasData(
-                new Category() { Id = 1, Name = "Otro" },
-                new Category() { Id = 2, Name = "Indumentaria" },
-                new Category() { Id = 3, Name = "Herramientas" }
-            );
+            #region Load_Test_Data
+            TestData.Load(modelBuilder);
             #endregion
 
             base.OnModelCreating(modelBuilder);
