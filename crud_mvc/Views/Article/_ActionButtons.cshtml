@@ -1,0 +1,12 @@
+﻿@model crud_mvc.Models.Article
+
+<form>
+    <button class="btn btn-primary btn-sm px-3" asp-controller="Article" asp-action="Edit" name="id" value="@Model.Id">Editar</button>
+    <!-- Button trigger modal 'Details' -->
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal_details_@{@Model.Id}">Detalles</button>
+    <!-- Button trigger modal 'Delete' -->
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_delete_@{@Model.Id}">Eliminar</button>
+</form>
+
+<partial name="_Details" model="Model" />
+<partial name="_Delete" model="Model" />

@@ -32,7 +32,7 @@
                     @if (category.Articles.Count == 0)
                     {
                         <td class="py-1">
-                            <partial name="Actions" model="@category"/>
+                            <partial name="_ActionButtons" model="@category"/>
                         </td>
                     }
                     else
