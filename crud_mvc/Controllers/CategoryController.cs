@@ -31,6 +31,7 @@ namespace crud_mvc.Controllers
         }
 
         // GET: CategoryController/Create
+        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Message = "Ingrese los datos de la categoría";
