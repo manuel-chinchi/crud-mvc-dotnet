@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace crud_mvc.Data
 {
-    public class AppDbContext : DbContext
+    public class ApplicationContext : DbContext
     {
         public DbSet<Article> Articles { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -17,7 +17,7 @@ namespace crud_mvc.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(AppConfiguration.GetConnectionString("DefaultConnection"));
+                optionsBuilder.UseSqlServer(ApplicationConfiguration.GetConnectionString("DefaultConnection"));
             }
         }
 
@@ -37,7 +37,7 @@ namespace crud_mvc.Data
             #endregion
 
             #region Load_Test_Data
-            TestData.Load(modelBuilder);
+            ApplicationData.Load(modelBuilder);
             #endregion
 
             base.OnModelCreating(modelBuilder);

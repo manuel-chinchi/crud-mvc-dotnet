@@ -14,7 +14,7 @@ namespace crud_mvc.Services
 
         public List<Category> GetCategories()
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 return db.Categories.Include(c => c.Articles).ToList();
             }
@@ -22,7 +22,7 @@ namespace crud_mvc.Services
 
         public Category GetCategory(int id)
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 return db.Categories.Where(c => c.Id == id).FirstOrDefault();
             }
@@ -30,7 +30,7 @@ namespace crud_mvc.Services
 
         public void InsertCategory(Category category)
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 db.Categories.Add(new Category() { Name = category.Name });
                 db.SaveChanges();
@@ -39,7 +39,7 @@ namespace crud_mvc.Services
 
         public bool DeleteCategory(int id)
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 var category = this.GetCategory(id);
 

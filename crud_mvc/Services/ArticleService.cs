@@ -14,7 +14,7 @@ namespace crud_mvc.Services
 
         public List<Article> GetArticles()
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 return db.Articles.Include(a => a.Category).ToList();
             }
@@ -22,7 +22,7 @@ namespace crud_mvc.Services
 
         public Article GetArticle(int id)
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 return db.Articles.Include(a => a.Category).Where(a => a.Id == id).FirstOrDefault();
             }
@@ -30,7 +30,7 @@ namespace crud_mvc.Services
 
         public void InsertArticle(Article article)
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 db.Articles.Add(new Article()
                 {
@@ -47,7 +47,7 @@ namespace crud_mvc.Services
         {
             int countRows = 0;
 
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 db.Articles.Update(article);
                 countRows = db.SaveChanges();
@@ -58,7 +58,7 @@ namespace crud_mvc.Services
 
         public bool DeleteArticle(int id)
         {
-            using (var db = new AppDbContext())
+            using (var db = new ApplicationContext())
             {
                 var article = this.GetArticle(id);
 
