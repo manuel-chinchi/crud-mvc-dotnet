@@ -17,7 +17,7 @@ namespace crud_mvc.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-GTSPB4M\\SQLEXPRESS; Database=inventory_db; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(AppConfiguration.GetConnectionString("DefaultConnection"));
             }
         }
 
