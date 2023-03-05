@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace crud_mvc.Data
 {
-    /// <summary>
-    /// Esta clase contiene datos de prueba para la aplicación.
-    /// </summary>
     public static class ApplicationData
     {
         public static void Load(ModelBuilder modelBuilder)

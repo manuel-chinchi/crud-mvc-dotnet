@@ -3,9 +3,6 @@ using System.IO;
 
 namespace crud_mvc.Data
 {
-    /// <summary>
-    /// Esta clase contiene configuración de la aplicación
-    /// </summary>
     public static class ApplicationConfiguration
     {
         // Get connectionString from appsettings.json in Net Core
