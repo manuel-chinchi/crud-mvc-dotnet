@@ -12,33 +12,33 @@
     <a class="btn btn-success btn-sm px-3" asp-controller="Category" asp-action="Create">Agregar</a>
 </div>
 <br />
-<div>
+<div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="row">#</th>
-                <th>Nombre</th>
-                <th>Artículos relacionados</th>
-                <th>Acción</th>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Artículos relacionados</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
             @foreach (Category category in Model)
             {
                 <tr>
-                    <td>@category.Id</td>
+                    <th scope="row">@category.Id</th>
                     <td>@category.Name</td>
                     <td>@category.Articles.Count</td>
-                    @if (category.Articles.Count == 0)
-                    {
-                        <td class="py-1">
+                    <td class="py-1">
+                        @if (category.Articles.Count == 0)
+                        {
                             <partial name="_ActionButtons" model="@category"/>
-                        </td>
-                    }
-                    else
-                    {
-                        <td class="py-1">No disponible</td>
-                    }
+                        }
+                        else
+                        {
+                            <p class="m-0">No disponible</p>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>
