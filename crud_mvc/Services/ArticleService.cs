@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace crud_mvc.Services
 {
-    public class ArticleService
+    public class ArticleService : IArticleService
     {
         public ArticleService() { }
 

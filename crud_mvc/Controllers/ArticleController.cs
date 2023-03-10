@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 
 namespace crud_mvc.Controllers
 {
-    public class ArticleController : Controller
+    public class ArticleController : BaseController
     {
-        public ArticleService articleService { get; set; }
-        public CategoryService categoryService { get; set; }
-
         public ArticleController()
         {
             articleService = new ArticleService();
