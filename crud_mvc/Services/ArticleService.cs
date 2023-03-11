@@ -37,26 +37,24 @@ namespace crud_mvc.Services
                     Name = article.Name,
                     Description = article.Description,
                     CategoryId = article.CategoryId,
-                    Quantity = article.Quantity
+                    Quantity = article.Quantity,
+                    DateCreated = DateTime.Now
                 });
                 db.SaveChanges();
             }
         }
 
-        public bool UpdateArticle(Article article)
+        public void UpdateArticle(Article article)
         {
-            int countRows = 0;
-
             using (var db = new ApplicationContext())
             {
+                article.DateUpdated = DateTime.Now;
                 db.Articles.Update(article);
-                countRows = db.SaveChanges();
+                db.SaveChanges();
             }
-
-            return countRows > 0 ? true : false;
         }
 
-        public bool DeleteArticle(int id)
+        public void DeleteArticle(int id)
         {
             using (var db = new ApplicationContext())
             {
@@ -64,13 +62,11 @@ namespace crud_mvc.Services
 
                 if (article != null)
                 {
-                    db.Articles.Remove(article);
+                    article.IsEnabled = false;
+                    article.DateUpdated = DateTime.Now;
+                    db.Articles.Update(article);
                     db.SaveChanges();
-
-                    return true;
                 }
-
-                return false;
             }
         }
     }

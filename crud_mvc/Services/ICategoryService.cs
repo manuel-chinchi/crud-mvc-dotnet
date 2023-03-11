@@ -14,6 +14,6 @@ namespace crud_mvc.Services
 
         public void InsertCategory(Category category);
 
-        public bool DeleteCategory(int id);
+        public void DeleteCategory(int id);
     }
 }

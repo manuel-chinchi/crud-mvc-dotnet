@@ -24,7 +24,7 @@ namespace crud_mvc.Services
         {
             using (var db = new ApplicationContext())
             {
-                return db.Categories.Where(c => c.Id == id).FirstOrDefault();
+                return db.Categories.FirstOrDefault(c => c.Id == id);
             }
         }
 
@@ -32,12 +32,16 @@ namespace crud_mvc.Services
         {
             using (var db = new ApplicationContext())
             {
-                db.Categories.Add(new Category() { Name = category.Name });
+                db.Categories.Add(new Category()
+                {
+                    Name = category.Name,
+                    DateCreated = DateTime.Now
+                });
                 db.SaveChanges();
             }
         }
 
-        public bool DeleteCategory(int id)
+        public void DeleteCategory(int id)
         {
             using (var db = new ApplicationContext())
             {
@@ -45,13 +49,11 @@ namespace crud_mvc.Services
 
                 if (category != null)
                 {
-                    db.Categories.Remove(category);
+                    category.IsEnabled = false;
+                    category.DateUpdated = DateTime.Now;
+                    db.Categories.Update(category);
                     db.SaveChanges();
-
-                    return true;
                 }
-
-                return false;
             }
         }
     }

@@ -14,8 +14,8 @@ namespace crud_mvc.Services
 
         public void InsertArticle(Article article);
 
-        public bool UpdateArticle(Article article);
+        public void UpdateArticle(Article article);
 
-        public bool DeleteArticle(int id);
+        public void DeleteArticle(int id);
     }
 }
