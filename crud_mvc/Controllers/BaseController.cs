@@ -12,5 +12,11 @@ namespace crud_mvc.Controllers
     {
         protected IArticleService articleService { get; set; }
         protected ICategoryService categoryService { get; set; }
+
+        public BaseController()
+        {
+            articleService = new ArticleService();
+            categoryService = new CategoryService();
+        }
     }
 }
