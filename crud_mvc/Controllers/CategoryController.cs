@@ -10,11 +10,6 @@ namespace crud_mvc.Controllers
 {
     public class CategoryController : BaseController
     {
-        public CategoryController()
-        {
-            categoryService = new CategoryService();
-        }
-
         public IActionResult Index()
         {
             return View();

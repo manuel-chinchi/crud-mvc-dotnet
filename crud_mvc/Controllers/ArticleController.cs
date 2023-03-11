@@ -10,12 +10,6 @@ namespace crud_mvc.Controllers
 {
     public class ArticleController : BaseController
     {
-        public ArticleController()
-        {
-            articleService = new ArticleService();
-            categoryService = new CategoryService();
-        }
-
         public IActionResult Index()
         {
             return View();
