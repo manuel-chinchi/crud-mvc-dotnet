@@ -9,11 +9,6 @@ namespace crud_mvc.Controllers
 {
     public class CategoryController : BaseController
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Create()
         {
