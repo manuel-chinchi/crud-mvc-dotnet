@@ -32,12 +32,12 @@ entre estas en el archivo (.edmx) dentro de la aplicación. Aquí la representació
 
 - Animación de una operación agregar/editar/eliminar artículo.  
 
-  ![Ejemplo](Images/gif/article_crud_operation.gif)
+  ![](Images/gif/article_crud_operation.gif)
 
 - Pagina de lista de artículos.  
 
-  ![Ejemplo2](Images/png/articles-list_details.png)
+  ![](Images/png/articles-list_details.png)
 
 - Página de detalles de un artículo.  
 
-  ![Ejemplo2](Images/png/article-details.png)
+  ![](Images/png/article-details.png)
