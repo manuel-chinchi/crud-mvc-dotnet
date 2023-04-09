@@ -21,13 +21,14 @@ programas
   - IIS Express 10
   - [Net Core 3.1 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
 
-## Modelo de datos
+## Arquitectura de la aplicación
 
-El modelo de datos de la aplicación cuenta con 2 entidades, Artículo y Categoría. Puede ver la relación 
-entre estas en el archivo (.edmx) dentro de la aplicación. Aquí la representación gráfica del mismo
+La aplicación cuenta con una estructura tipo MVC (Modelo-Vista-Controlador). Además implementa 
+una capa de servicios para el acceso a datos. **Todo esto en un mismo proyecto**. 
+Para una vista general, se presenta el diagrama de clases (archivo `ClassDiagram.cd`)
 
-![Diagrama](Images/png/)
-  
+![](Images/png/ClassDiagram.png)
+
 ## Capturas
 
 - Pagina de lista de artículos.  
