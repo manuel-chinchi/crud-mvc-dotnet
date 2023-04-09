@@ -1,5 +1,4 @@
-﻿using crud_mvc.Models;
-using crud_mvc.Services;
+﻿using crud_mvc.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

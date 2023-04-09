@@ -1,5 +1,4 @@
 ﻿using crud_mvc.Models;
-using crud_mvc.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,11 +10,6 @@ namespace crud_mvc.Controllers
     public class CategoryController : BaseController
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Details(int id)
         {
             return View();
         }
@@ -38,22 +32,6 @@ namespace crud_mvc.Controllers
                 TempData["AlertMessage"] = "Se ha agregado la categoría.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
-                return RedirectToAction("ListDetails");
-            }
-
-            return View();
-        }
-
-        public IActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Category category)
-        {
-            if (ModelState.IsValid)
-            {
                 return RedirectToAction("ListDetails");
             }
 
