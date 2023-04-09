@@ -30,10 +30,6 @@ entre estas en el archivo (.edmx) dentro de la aplicación. Aquí la representació
   
 ## Capturas
 
-- Animación de una operación agregar/editar/eliminar artículo.  
-
-  ![](Images/gif/article_crud_operation.gif)
-
 - Pagina de lista de artículos.  
 
   ![](Images/png/articles-list_details-responsive.png)
@@ -41,3 +37,7 @@ entre estas en el archivo (.edmx) dentro de la aplicación. Aquí la representació
 - Página de detalles de un artículo.  
 
   ![](Images/png/article-details.png)
+
+- Animación de una operación agregar/editar/eliminar artículo.  
+
+  ![](Images/gif/article_crud_operation.gif)
