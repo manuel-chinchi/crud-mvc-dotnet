@@ -36,7 +36,7 @@ entre estas en el archivo (.edmx) dentro de la aplicación. Aquí la representació
 
 - Pagina de lista de artículos.  
 
-  ![](Images/png/articles-list_details.png)
+  ![](Images/png/articles-list_details-responsive.png)
 
 - Página de detalles de un artículo.  
 
