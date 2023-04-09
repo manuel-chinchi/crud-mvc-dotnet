@@ -37,6 +37,7 @@ namespace crud_mvc.Services
                     Name = category.Name,
                     DateCreated = DateTime.Now
                 });
+
                 db.SaveChanges();
             }
         }
@@ -49,9 +50,7 @@ namespace crud_mvc.Services
 
                 if (category != null)
                 {
-                    category.IsEnabled = false;
-                    category.DateUpdated = DateTime.Now;
-                    db.Categories.Update(category);
+                    db.Categories.Remove(category);
                     db.SaveChanges();
                 }
             }

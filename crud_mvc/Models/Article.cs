@@ -11,7 +11,6 @@ namespace crud_mvc.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
-        public bool IsEnabled { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
 
@@ -21,6 +20,6 @@ namespace crud_mvc.Models
         // Navigation properties
         public virtual Category Category { get; set; }
 
-        public Article() { IsEnabled = true; DateCreated = DateTime.UtcNow; DateUpdated = null; }
+        public Article() { DateCreated = DateTime.UtcNow; DateUpdated = null; }
     }
 }

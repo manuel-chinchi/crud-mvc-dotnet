@@ -40,6 +40,7 @@ namespace crud_mvc.Services
                     Quantity = article.Quantity,
                     DateCreated = DateTime.Now
                 });
+
                 db.SaveChanges();
             }
         }
@@ -62,9 +63,8 @@ namespace crud_mvc.Services
 
                 if (article != null)
                 {
-                    article.IsEnabled = false;
                     article.DateUpdated = DateTime.Now;
-                    db.Articles.Update(article);
+                    db.Articles.Remove(article);
                     db.SaveChanges();
                 }
             }

@@ -83,7 +83,7 @@ namespace crud_mvc.Controllers
         {
             ViewBag.Message = "Lista de artículos existentes";
 
-            return View(articleService.GetArticles().Where(a => a.IsEnabled == true));
+            return View(articleService.GetArticles());
         }
     }
 }

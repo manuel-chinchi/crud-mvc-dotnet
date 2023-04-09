@@ -74,7 +74,7 @@ namespace crud_mvc.Controllers
         {
             ViewBag.Message = "Lista de categorias existentes.";
 
-            return View(categoryService.GetCategories().Where(c => c.IsEnabled == true));
+            return View(categoryService.GetCategories());
         }
     }
 }
