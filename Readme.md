@@ -49,7 +49,7 @@ Ejemplo de una operación agregar/editar/eliminar artículo.
 
 <!-- ![](Resources/Video/mov/article_crud_operation.mov) -->
 <p align="center">
-  <video src="Resources/Video/article_crud_operation2.mov" controls="controls" style="max-width: 730px;">
+  <video src="Resources/Video/article_crud_operation.mov" controls="controls" style="max-width: 730px;">
   </video>
 </p>
 
