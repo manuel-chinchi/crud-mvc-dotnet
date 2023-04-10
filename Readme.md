@@ -27,18 +27,29 @@ La aplicación cuenta con una estructura tipo MVC (Modelo-Vista-Controlador). Ade
 una capa de servicios para el acceso a datos. **Todo esto en un mismo proyecto**. 
 Para una vista general, se presenta el diagrama de clases (archivo `ClassDiagram.cd`)
 
-![](Images/png/ClassDiagram.png)
+![](Resources/Images/ClassDiagram.png)
 
 ## Capturas
 
-- Pagina de lista de artículos.  
+Pagina de lista de artículos.
 
-  ![](Images/png/articles-list_details-responsive.png)
+<!-- ![](Resources/Images/articles-list_details-responsive.png) -->
+<p align="center">
+  <img src="Resources/Images/articles-list_details-responsive.png" width="650px" height="1236px">
+</p>
 
-- Página de detalles de un artículo.  
+Página de detalles de un artículo.
 
-  ![](Images/png/article-details.png)
+<!-- ![](Resources/Images/article-details.png) -->
+<p align="center">
+  <img src="Resources/Images/article-details.png" width="630px" height="662px">
+</p>
 
-- Animación de una operación agregar/editar/eliminar artículo.  
+Ejemplo de una operación agregar/editar/eliminar artículo.
 
-  ![](Images/gif/article_crud_operation.gif)
+<!-- ![](Resources/Video/mov/article_crud_operation.mov) -->
+<p align="center">
+  <video src="Resources/Video/article_crud_operation2.mov" controls="controls" style="max-width: 730px;">
+  </video>
+</p>
+
