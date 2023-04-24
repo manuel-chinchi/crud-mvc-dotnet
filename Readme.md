@@ -45,11 +45,6 @@ Página de detalles de un artículo.
   <img src="Resources/Images/article-details.png" width="630px" height="662px">
 </p>
 
-Ejemplo de una operación agregar/editar/eliminar artículo.
+## Demostración
 
-<!-- ![](Resources/Video/mov/article_crud_operation.mov) -->
-<p align="center">
-  <video src="Resources/Video/article_crud_operation.mp4" controls="controls" style="max-width: 730px;">
-  </video>
-</p>
-
+https://user-images.githubusercontent.com/88981972/233879807-b1d2f422-6fdb-4d00-b366-6c6c44391dc6.mp4
