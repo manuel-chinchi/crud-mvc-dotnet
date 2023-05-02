@@ -1,12 +1,12 @@
-﻿using crud_mvc.Data;
-using crud_mvc.Models;
+﻿using crud.Data;
+using crud.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace crud_mvc.Services
+namespace crud.Services
 {
     public class CategoryService : ICategoryService
     {

@@ -1,5 +1,5 @@
-using crud_mvc.Controllers;
-using crud_mvc.Models;
+using crud.Controllers;
+using crud.Models;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace crud_mvc
+namespace crud
 {
     public class Startup
     {

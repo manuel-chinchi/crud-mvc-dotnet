@@ -1,11 +1,11 @@
-﻿using crud_mvc.Services;
+﻿using crud.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace crud_mvc.Controllers
+namespace crud.Controllers
 {
     public class BaseController : Controller
     {

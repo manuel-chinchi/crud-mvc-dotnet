@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace crud_mvc.Data
+namespace crud.Data
 {
     public static class ApplicationConfiguration
     {

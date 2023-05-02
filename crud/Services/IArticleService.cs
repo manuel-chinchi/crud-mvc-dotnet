@@ -1,10 +1,10 @@
-﻿using crud_mvc.Models;
+﻿using crud.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace crud_mvc.Services
+namespace crud.Services
 {
     public interface IArticleService
     {
