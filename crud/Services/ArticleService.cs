@@ -28,7 +28,7 @@ namespace crud.Services
             }
         }
 
-        public void InsertArticle(Article article)
+        public void CreateArticle(Article article)
         {
             using (var db = new ApplicationContext())
             {

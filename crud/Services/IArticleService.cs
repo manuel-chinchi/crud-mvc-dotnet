@@ -12,7 +12,7 @@ namespace crud.Services
 
         public Article GetArticle(int id);
 
-        public void InsertArticle(Article article);
+        public void CreateArticle(Article article);
 
         public void UpdateArticle(Article article);
 

@@ -12,7 +12,7 @@ namespace crud.Services
 
         public Category GetCategory(int id);
 
-        public void InsertCategory(Category category);
+        public void CreateCategory(Category category);
 
         public void DeleteCategory(int id);
     }

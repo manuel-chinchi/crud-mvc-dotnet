@@ -28,7 +28,7 @@ namespace crud.Services
             }
         }
 
-        public void InsertCategory(Category category)
+        public void CreateCategory(Category category)
         {
             using (var db = new ApplicationContext())
             {

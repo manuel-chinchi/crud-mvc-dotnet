@@ -25,7 +25,7 @@ namespace crud.Controllers
 
             if (ModelState.IsValid)
             {
-                articleService.InsertArticle(article);
+                articleService.CreateArticle(article);
 
                 TempData["AlertMessage"] = "Se ha agregado el artículo.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;

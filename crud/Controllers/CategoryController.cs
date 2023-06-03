@@ -22,7 +22,7 @@ namespace crud.Controllers
         {
             if (ModelState.IsValid)
             {
-                categoryService.InsertCategory(category);
+                categoryService.CreateCategory(category);
 
                 TempData["AlertMessage"] = "Se ha agregado la categoría.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
