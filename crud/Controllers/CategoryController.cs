@@ -27,7 +27,7 @@ namespace crud.Controllers
                 TempData["AlertMessage"] = "Se ha agregado la categoría.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
-                return RedirectToAction("ListDetails");
+                return RedirectToAction("List");
             }
 
             return View();
@@ -40,10 +40,10 @@ namespace crud.Controllers
 
             categoryService.DeleteCategory(id);
 
-            return RedirectToAction("ListDetails");
+            return RedirectToAction("List");
         }
 
-        public IActionResult ListDetails()
+        public IActionResult List()
         {
             ViewBag.Message = "Lista de categorias existentes.";
 

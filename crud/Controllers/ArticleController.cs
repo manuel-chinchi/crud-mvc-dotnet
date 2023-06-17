@@ -30,7 +30,7 @@ namespace crud.Controllers
                 TempData["AlertMessage"] = "Se ha agregado el artículo.";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
-                return RedirectToAction("ListDetails");
+                return RedirectToAction("List");
             }
 
             return View();
@@ -57,7 +57,7 @@ namespace crud.Controllers
                 TempData["AlertMessage"] = "Se ha actualizado el artículo";
                 TempData["AlertStyle"] = AlertConstants.SUCCESS;
 
-                return RedirectToAction("ListDetails");
+                return RedirectToAction("List");
             }
 
             return View();
@@ -70,10 +70,10 @@ namespace crud.Controllers
 
             articleService.DeleteArticle(id);
 
-            return RedirectToAction("ListDetails");
+            return RedirectToAction("List");
         }
 
-        public IActionResult ListDetails()
+        public IActionResult List()
         {
             ViewBag.Message = "Lista de artículos existentes";
 
