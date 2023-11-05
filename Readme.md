@@ -1,6 +1,7 @@
 # Crud MVC
 
- Sistema básico con operaciones CRUD hecho en MVC .Net Core 3.1 y Entity Framework.
+ Sistema básico con operaciones CRUD (escritura, lectura, edición y borrado de información) 
+ sobre una base de datos SQL Server hecho en .Net Core 3.1 y Entity Framework.
 
 ## ¿De qué trata esta aplicación?
 
@@ -14,48 +15,51 @@ Todos los componentes usados se listan a continuación.
 
 ## ¿Cómo pruebo esto? (Despliegue)
 
-Para poder ejecutar la aplicación se necesita instalar los siquientes componentes:
+Para poder ejecutar la aplicación (por el momento solo en sistemas Windows) se necesita instalar los 
+siquientes componentes:
 
   - [SQL Server Express LocalDB](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver16)
   - [Runtime de Net Core 3.1](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
-  - [Navegador Web, Chrome, Mozila, Edge, etc.]()
+  - Navegador Web (cualquiera).
 
 Una vez instalados, seguir los siguientes pasos para iniciar el proyecto.
 
-  1. Descomprimir los archivos del proyecto en alguna carpeta, por ej. crear una carpeta
+  1. Descargar el proyecto compilado listo para probar desde [este enlace](https://github.com/manuel-chinchi/crud-mvc-dotnet/releases/tag/release/crud_mvc_dotnet_v1.0.zip).
+
+  2. Descomprimir los archivos del proyecto en alguna carpeta, por ej. crear una carpeta
   en el escritorio llamada `ExampleProject`.
   
-  2. Pararse dentro de esa carpera. Para esto, abrir una terminal y ejecutar el 
+  3. Pararse dentro de esa carpera. Para esto, abrir una terminal y ejecutar el 
   comando `cd C:\Users\%username%\Desktop\ExampleProyect\`.
   
-  3. Antes de iniciar el proyecto cambiar la conexión para que "apunte" a la base de datos
+  4. Antes de iniciar el proyecto cambiar la conexión para que "apunte" a la base de datos
   que trae dentro de la carpeta `App_Data`. Para esto, abrir el archivo `appsettings.json`
   y dejarlo como se muestra a continuación:
-  ```json
-  {
-    "Logging": {
-      "LogLevel": {
-        "Default": "Information",
-        "Microsoft": "Warning",
-        "Microsoft.Hosting.Lifetime": "Information"
+      ```json
+      {
+        "Logging": {
+          "LogLevel": {
+            "Default": "Information",
+            "Microsoft": "Warning",
+            "Microsoft.Hosting.Lifetime": "Information"
+          }
+        },
+        "AllowedHosts": "*",
+        "ConnectionStrings": {
+          // develop
+          //"DefaultConnection": "Server=(localdb)\\mssqllocaldb; Database=crud_mvc_dotnet; Trusted_Connection=True;"
+          // deploy in other machine
+          "DefaultConnection": "Server=(localdb)\\mssqllocaldb; Database=crud_mvc_dotnet; Trusted_Connection=True; AttachDbFilename=|DataDirectory|\\App_Data\\crud_mvc_dotnet.mdf"
+        }
       }
-    },
-    "AllowedHosts": "*",
-    "ConnectionStrings": {
-      // develop
-      //"DefaultConnection": "Server=(localdb)\\mssqllocaldb; Database=crud_mvc_dotnet; Trusted_Connection=True;"
-      // deploy in other machine
-      "DefaultConnection": "Server=(localdb)\\mssqllocaldb; Database=crud_mvc_dotnet; Trusted_Connection=True; AttachDbFilename=|DataDirectory|\\App_Data\\crud_mvc_dotnet.mdf"
-    }
-  }
-  ``` 
-  Lo que se hace acá es solamente cambiar el valor del **ConnectionStrings** para que lea
-  la base de datos desde `App_Data\crud_mvc_dotnet.mdf` que se encuentra en el proyecto.
+      ```  
+      Lo que se hace acá es solamente cambiar el valor del **ConnectionStrings** para que lea
+      la base de datos desde `App_Data\crud_mvc_dotnet.mdf` que se encuentra en el proyecto.
   
-  4. Iniciar el proyecto, en la terminal ejecutar el comando `dotnet crud.dll`, deberan 
+  5. Iniciar el proyecto, en la terminal ejecutar el comando `dotnet crud.dll`, deberan 
   mostrarse unas lineas y entre esas una url de navegación similar a esta `https://localhost:5001`.
 
-  5. Abrir el navegador e ir a la url antetiormente mencionada. Listo, ya se puede probar
+  6. Abrir el navegador e ir a la url anteriormente mostrada y listo, ya se puede probar
   la aplicación.
 
 ## Arquitectura de la aplicación
