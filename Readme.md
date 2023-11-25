@@ -1,4 +1,4 @@
-# Crud MVC
+# Crud MVC DOTNET
 
  Sistema básico con operaciones CRUD (escritura, lectura, edición y borrado de información) 
  sobre una base de datos SQL Server hecho en .Net Core 3.1 y Entity Framework.
