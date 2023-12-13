@@ -7,6 +7,8 @@
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
 <hr />
+@*<partial name="_DisplayCategories"/>*@
+
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-10">
         <form asp-action="Create">
@@ -17,12 +19,7 @@
             </div>
             <div class="form-group">
                 <label>Categoría</label>
-                <select class="form-control form-control-sm" asp-for="CategoryId">
-                    @foreach (Category item in ViewBag.Categories)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select>
+                <partial name="_DisplayCategoryList" data="@ViewBag.Categories" model="@Model" />
             </div>
             <div class="form-group">
                 <label asp-for="Description">Descripción</label>
