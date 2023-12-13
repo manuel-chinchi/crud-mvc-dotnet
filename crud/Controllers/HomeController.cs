@@ -1,5 +1,7 @@
 ﻿using crud.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,21 @@ namespace crud.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var data = new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary())
+            {
+                { "urlJquery", "https://jquery.com/" },
+                { "urlBootstrap", "https://getbootstrap.com/" },
+                { "urlDatatables", "https://datatables.net/"},
+                { "urlEF6", "https://www.nuget.org/packages/EntityFramework/" },
+                { "urlChartjs", "https://www.chartjs.org/" },
+                { "urlJszip", "https://stuk.github.io/jszip/" },
+                { "urlPdfmake", "http://pdfmake.org/#/" },
+                { "title", "Información del proyecto" },
+                { "message", "Sistema CRUD hecho en C# ASP.NET" },
+                { "repository", "https://github.com/manuel-chinchi/crud-mvc-dotnet"  }
+            };
+
+            return View(data);
         }
     }
 }
