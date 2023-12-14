@@ -34,6 +34,9 @@
                                 <a class="dropdown-item" asp-controller="Category" asp-action="List">Ver lista</a>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Report" asp-action="Reports">Reportes</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -41,6 +44,8 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @RenderSection("ChartJSStyle", required: false)
+            @RenderSection("DatatablesButtons_Css", required: false)
             @RenderBody()
         </main>
     </div>
@@ -54,10 +59,18 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
+    <!-- #region chartjs -->
+    @RenderSection("ChartJS", required: false)
+    <!-- #endregion -->
+
     <!-- #region jquery-datatables configuration -->
     <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/lib/datatables-buttons/css/datatables-custom.css" />
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="~/js/datatables-custom.js"></script>
+    @RenderSection("DatatablesButtons_Js_Articles", required: false)
+    @RenderSection("DatatablesButtons_Js_Categories", required: false)
+    @RenderSection("DatatablesButtons_Js", required: false)
     <!-- #endregion -->
+
 </body>
 </html>

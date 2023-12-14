@@ -1,1 +1,31 @@
-﻿
+﻿@model ViewDataDictionary
+
+<h3>@Model["title"]</h3>
+<p>@Model["message"]</p>
+<br />
+
+<div class="card">
+    <div class="card-header">
+        Versión: 1.2.0
+    </div>
+    <div class="card-body">
+        <p>Esta aplicación cuenta con el uso de las siguientes librerías:</p>
+        <ul class="ml-3">
+            <li><a href="@Model["urlJquery"]">jQuery 3.5.1</a></li>
+            <li><a href="@Model["urlBootstrap"]">Bootstrap 4.3.1</a></li>
+            <li><a href="@Model["urlDatatables"]">DataTables 1.13.4</a></li>
+            <li><a href="@Model["urlEF6"]">Entity Framework 6.4.4</a></li>
+            <li><a href="@Model["urlChartjs"]">Chart.js 3.7.1</a></li>
+            <li>
+                Exportación a otros formatos
+                <ul>
+                    <li>Excel: <a href="@Model["urlJszip"]">JSZip v3.10.1</a></li>
+                    <li>PDF: <a href="@Model["urlPdfmake"]">PDFMake v0.1.53</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p>Puede descargar el código del proyecto desde <a href="@Model["repository"]">aquí</a></p>
+    </div>
+    <br />
+    <br />
+</div>
