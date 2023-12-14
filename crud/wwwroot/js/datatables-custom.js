@@ -1,8 +1,9 @@
 ﻿// Documentation 
 // https://datatables.net/reference/option/language
+// https://datatables.net/extensions/buttons/examples/html5/columns.html
 
 $(document).ready(function () {
-    $('table').DataTable({
+    tableRef.DataTable({
         language: {
             info: 'Mostrando registro _START_ hasta el _END_',
             infoEmpty: '',
@@ -13,7 +14,48 @@ $(document).ready(function () {
             paginate: {
                 previous: 'Anterior',
                 next: 'Siguiente'
+            },
+            buttons: {
+                copyTitle: 'Copiado al portapapeles',
+                copySuccess: {
+                    _: '%d líneas copiadas',
+                },
             }
         },
+        dom: 'lBfrtip',
+        buttons: [
+            {
+                extend: 'collection',
+                background: false,
+                text: 'Exportar',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: 'Copiar',
+                        exportOptions: {
+                            columns: tableCols
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        exportOptions: {
+                            columns: tableCols
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: tableCols
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: tableCols
+                        },
+                    },
+                ]
+            },
+        ]
     });
 });

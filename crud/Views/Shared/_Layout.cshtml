@@ -45,6 +45,7 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderSection("ChartJSStyle", required: false)
+            @RenderSection("DatatablesButtons_Css", required: false)
             @RenderBody()
         </main>
     </div>
@@ -58,13 +59,17 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
-    <!-- #regionchartjs -->
+    <!-- #region chartjs -->
     @RenderSection("ChartJS", required: false)
     <!-- #endregion -->
+
     <!-- #region jquery-datatables configuration -->
     <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="~/js/datatables-custom.js"></script>
+    @RenderSection("DatatablesButtons_Js_Articles", required: false)
+    @RenderSection("DatatablesButtons_Js_Categories", required: false)
+    @RenderSection("DatatablesButtons_Js", required: false)
     <!-- #endregion -->
+
 </body>
 </html>

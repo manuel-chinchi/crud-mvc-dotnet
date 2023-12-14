@@ -6,6 +6,10 @@
 
 <partial name="_AlertNotify" />
 
+@section DatatablesButtons_Css {
+    <link href="~/lib/datatables-buttons/css/buttons.dataTables.min.css" rel="stylesheet" />
+}
+
 <h3>@ViewBag.Title</h3>
 <p>@ViewBag.Message</p>
 <div>
@@ -15,7 +19,7 @@
 </div>
 <br />
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table id="table-articles" class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -36,7 +40,7 @@
                     <td>@article.Description</td>
                     <td>@article.Quantity</td>
                     <td class="py-1">
-                        <partial name="_ActionButtons" model="@article"/>
+                        <partial name="_ActionButtons" model="@article" />
                     </td>
                 </tr>
             }
@@ -44,3 +48,17 @@
     </table>
     <p>Total: @Model.Count()</p>
 </div>
+
+@section DatatablesButtons_Js_Articles {
+    <script src="~/lib/datatables-buttons/js/datatables-config-articles.js"></script>
+    <script src="~/js/datatables-custom.js"></script>
+}
+
+@section DatatablesButtons_Js {
+    <script src="~/lib/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/jszip.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/pdfmake.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/vfs_fonts.js"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/lib/datatables-buttons/js/buttons.print.min.js"></script>
+}
