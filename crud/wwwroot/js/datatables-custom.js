@@ -9,7 +9,8 @@ $(document).ready(function () {
             infoEmpty: '',
             infoFiltered: '',
             zeroRecords: 'No se encontraron registros coincidentes',
-            search: 'Buscar:',
+            search: '',
+            searchPlaceholder: "Buscar",
             lengthMenu: 'Mostrar _MENU_ registros',
             paginate: {
                 previous: 'Anterior',

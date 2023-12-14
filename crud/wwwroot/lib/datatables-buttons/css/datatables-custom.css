@@ -1,0 +1,73 @@
+﻿div.dt-buttons {
+    margin-left: 1.2em;
+    height: 40.8px;
+}
+
+div.dt-buttons > .dt-button {
+    height: 35.8px;
+}
+
+@media (max-width: 575px) {
+    /* ############################################################################### */
+    /* cancel properties */
+    /* ############################################################################### */
+    #table-articles_length {
+        /*border: 1px dotted red;*/
+        padding-right: 0;
+    }
+
+    div.dt-buttons {
+        /*border: 1px dotted blue;*/
+        margin-left: 0;
+        width: 100%;
+    }
+    /* "Mostrar: [__] registros" */
+    #table-articles_length label {
+        margin: 0;
+    }
+
+    /* "[ Exportar ]" */
+    .dt-button.buttons-collection {
+        /*padding: 0 !important;*/
+        margin: 0 !important;
+        /*background-color:red;*/
+        width: 100%;
+    }
+
+    #table-articles_filter {
+        /*border: 1px dotted green;*/
+        margin-bottom: 0.4em;
+    }
+
+    #table-articles_filter label {
+        width: 100%;
+    }
+
+    #table-articles_filter input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .dataTables_filter {
+        /*border: 1px dotted yellow;*/
+        margin-top: 0 !important;
+    }
+
+    /* "Buscar: [__]" */
+    .dataTables_filter label {
+        /*border: 1px solid black;*/
+        margin: 0;
+    }
+    /* ############################################################################### */
+    /* common properties */
+    /* ############################################################################### */
+    #table-articles_length,
+    div.dt-buttons,
+    .dataTables_filter {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        height: 6vh;
+    }
+}
