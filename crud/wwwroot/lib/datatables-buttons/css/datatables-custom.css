@@ -11,7 +11,8 @@ div.dt-buttons > .dt-button {
     /* ############################################################################### */
     /* cancel properties */
     /* ############################################################################### */
-    #table-articles_length {
+    #table-articles_length,
+    #table-categories_length {
         /*border: 1px dotted red;*/
         padding-right: 0;
     }
@@ -22,7 +23,8 @@ div.dt-buttons > .dt-button {
         width: 100%;
     }
     /* "Mostrar: [__] registros" */
-    #table-articles_length label {
+    #table-articles_length label,
+    #table-categories_length label {
         margin: 0;
     }
 
@@ -34,16 +36,19 @@ div.dt-buttons > .dt-button {
         width: 100%;
     }
 
-    #table-articles_filter {
+    #table-articles_filter,
+    #table-categories_filter {
         /*border: 1px dotted green;*/
         margin-bottom: 0.4em;
     }
 
-    #table-articles_filter label {
+    #table-articles_filter label,
+    #table-categories_filter label {
         width: 100%;
     }
 
-    #table-articles_filter input {
+    #table-articles_filter input,
+    #table-categories_filter input {
         width: 100%;
         margin-left: 0;
     }
@@ -62,6 +67,7 @@ div.dt-buttons > .dt-button {
     /* common properties */
     /* ############################################################################### */
     #table-articles_length,
+    #table-categories_length,
     div.dt-buttons,
     .dataTables_filter {
         display: flex;
