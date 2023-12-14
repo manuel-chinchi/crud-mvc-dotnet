@@ -1,0 +1,42 @@
+﻿.card-body {
+    margin: auto;
+    padding: 0;
+}
+
+.chart-container {
+    height: 400px;
+    padding: 5px;
+    position: relative;
+    margin: auto; /* centra el grafico */
+    /*margin: 0 auto;*/
+}
+
+@media (max-width: 359px) {
+    .chart-container {
+        width: 80vw;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 575px) {
+    .chart-container {
+        width: 330px;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    canvas#chart-categories {
+        height: 100% !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width:767px) {
+    .chart-container {
+    }
+}
+
+@media (min-width:767px) {
+    .chart-container {
+        width: 400px;
+        min-height: 400px;
+    }
+}

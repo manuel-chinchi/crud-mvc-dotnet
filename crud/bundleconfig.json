@@ -1,0 +1,19 @@
+[
+  {
+    "outputFileName": "s",
+    "inputFiles": [
+      "sss"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/lib/chartjs/bundle.chartjs.min.js",
+    "inputFiles": [
+      "wwwroot/lib/chartjs/chart.min.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]
