@@ -7,6 +7,10 @@ div.dt-buttons > .dt-button {
     height: 35.8px;
 }
 
+table.dataTable tbody td {
+    white-space: nowrap;
+}
+
 @media (max-width: 575px) {
     /* ############################################################################### */
     /* cancel properties */
