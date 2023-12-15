@@ -41,7 +41,7 @@
                         else
                         {
                             @*<p class="m-0">No disponible</p>*@
-                            <button class="btn btn-warning btn-sm text-white" title="No disponible" disabled><span class="fa fa-exclamation-circle"></span></button>
+                            <button class="btn btn-warning btn-sm text-white" title="@ViewBag.TooltipText" data-toggle="tooltip" data-placement="top" disabled><span class="fa fa-exclamation-circle"></span></button>
                         }
                     </td>
                 </tr>
@@ -64,4 +64,8 @@
     <script src="~/lib/datatables-buttons/js/vfs_fonts.js"></script>
     <script src="~/lib/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="~/lib/datatables-buttons/js/buttons.print.min.js"></script>
+}
+
+@section BootstrapCustom {
+    <script src="~/js/bootstrap-custom.js"></script>
 }
