@@ -46,7 +46,7 @@ namespace crud.Controllers
         public IActionResult List()
         {
             ViewBag.Message = "Lista de categorias existentes.";
-            ViewBag.TooltipText = "No se pueden borrar categorías cona artículos relacionados.";
+            ViewBag.TooltipText = "No se pueden borrar categorías con artículos relacionados.";
 
             return View(categoryService.GetCategories());
         }
