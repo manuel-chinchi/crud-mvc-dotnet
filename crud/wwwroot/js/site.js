@@ -8,11 +8,11 @@ $(document).ready(function () {
         var icon = $('#switchIconTheme');
         if ($(this).is(':checked')) {
             /*console.log('dia');*/
-            icon.removeClass('fa-moon-o');
-            icon.addClass('fa-sun-o');
+            //icon.removeClass('fa-moon-o');
+            //icon.addClass('fa-sun-o');
         } else {
-            icon.removeClass('fa-sun-o');
-            icon.addClass('fa-moon-o');
+            //icon.removeClass('fa-sun-o');
+            //icon.addClass('fa-moon-o');
         }
     });
 });
