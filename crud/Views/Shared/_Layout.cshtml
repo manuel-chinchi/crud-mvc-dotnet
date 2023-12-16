@@ -39,15 +39,7 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Report" asp-action="Reports">Reportes</a>
                         </li>
-                        <li class="nav-item ml-auto" id="switch">
-                            @*<button class="btn px-2 pb-2"><i id="switchIconTheme" class="fa fa-moon-o fa-lg"></i></button>*@
-                            <a class="btn px-2 pb-2"><i class="fa fa-sun-o fa-lg"></i></a>
-                            <div id="switch-2" class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="switchBgTheme">
-                                <label class="custom-control-label" for="switchBgTheme"></label>
-                            </div>
-                            <a class="btn px-0 pb-2"><i class="fa fa-moon-o fa-lg"></i></a>
-                        </li>
+                        <partial name="_ButtonDarkMode" />
                     </ul>
                 </div>
             </div>

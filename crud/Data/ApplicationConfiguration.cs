@@ -28,5 +28,10 @@ namespace crud.Data
 
             return connectionString;
         }
+
+        public static void ChageBackgroundTheme()
+        {
+            return;
+        }
     }
 }
