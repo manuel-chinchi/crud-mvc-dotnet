@@ -2,6 +2,10 @@
 // https://datatables.net/reference/option/language
 // https://datatables.net/extensions/buttons/examples/html5/columns.html
 
+// utils
+// https://stackoverflow.com/questions/45515559/how-to-call-datatable-csv-button-from-custom-button
+// https://stackoverflow.com/questions/54352745/how-to-hook-up-custom-buttons-instead-of-the-datatables-buttons?noredirect=1&lq=1
+
 $(document).ready(function () {
     tableRef.DataTable({
         language: {
@@ -29,6 +33,8 @@ $(document).ready(function () {
                 extend: 'collection',
                 background: false,
                 text: 'Exportar',
+                className: 'btn btn-primary dropdown-toggle',
+                //action: function (e, dt, node, config) { }
                 buttons: [
                     {
                         extend: 'copy',
@@ -57,6 +63,32 @@ $(document).ready(function () {
                     },
                 ]
             },
-        ]
+        ],
+        initComplete: function () {
+            applyCustomStyles();
+        },
+        drawCallback: function (settings) {
+            applyCustomStyles2();
+        }
     });
+
+    function applyCustomStyles() {
+        $(".dt-button.buttons-collection span").remove();
+
+        var listButtons = $(".dt-button.buttons-collection");
+        listButtons.removeClass("dt-button buttons-collection");
+        listButtons.addClass("btn btn-primary dropdown-toggle w-100");
+        listButtons.text("Exportar ");
+    }
+
+    function applyCustomStyles2() {
+        //$(".dataTables_paginate.paging_simple_numbers").addClass("btn-group");
+
+        //var numbers = $(".dataTables_paginate.paging_simple_numbers span").contents();
+        //$(".dataTables_paginate.paging_simple_numbers span").replaceWith(numbers);
+        //$(".paginate_button").removeClass("paginate_button").addClass("btn btn-primary");
+
+        // TODO si agrego estos esitlos los botones quedan alineados a la izq. cuando deberían quedar 
+        //centrados en pantallas chicas. revisar la clase "btn-group" su prop. "display"
+    }
 });

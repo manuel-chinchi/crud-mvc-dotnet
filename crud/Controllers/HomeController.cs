@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace crud.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
@@ -28,6 +28,8 @@ namespace crud.Controllers
                 { "message", "Sistema CRUD hecho en C# ASP.NET" },
                 { "repository", "https://github.com/manuel-chinchi/crud-mvc-dotnet"  }
             };
+
+            ThemeActivated = false;
 
             return View(data);
         }

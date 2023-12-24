@@ -1,11 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - crud_mvc_dotnet</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" id="bootstrap-theme" />
     <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/lib/fontawesome/fonts/fontawesome-webfont.woff" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -61,6 +64,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/button-dark-mode.js"></script>
     @RenderSection("Scripts", required: false)
 
     <!-- #region chartjs -->
