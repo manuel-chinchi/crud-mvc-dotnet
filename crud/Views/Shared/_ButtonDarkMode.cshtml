@@ -1,7 +1,23 @@
-﻿<li class="nav-item ml-auto" id="switch">
+﻿@{ 
+    bool flag = Convert.ToBoolean(ViewBag.Flag);
+    string themeOn = ViewBag.ThemeOn;
+    string themeOff = ViewBag.ThemeOff;
+}
+
+<li class="nav-item ml-auto" id="switch">
     <a class="btn px-2 pb-2"><i class="fa fa-sun-o fa-lg"></i></a>
     <div id="switch-2" class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="btn-switch-theme">
+        @*<input type="checkbox" class="custom-control-input" id="btn-switch-theme">*@
+        @{ 
+            if (flag == true)
+            {
+                <input type="checkbox" class="custom-control-input" id="btn-switch-theme" checked>
+            }
+            else
+            {
+                <input type="checkbox" class="custom-control-input" id="btn-switch-theme">
+            }
+        }
         @*@{
             if (Model == false)
             {

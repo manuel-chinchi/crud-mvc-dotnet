@@ -29,8 +29,6 @@ namespace crud.Controllers
                 { "repository", "https://github.com/manuel-chinchi/crud-mvc-dotnet"  }
             };
 
-            ThemeActivated = false;
-
             return View(data);
         }
     }

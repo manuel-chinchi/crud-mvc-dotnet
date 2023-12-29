@@ -1,6 +1,7 @@
 ﻿using crud.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,11 @@ namespace crud.Controllers
         protected IArticleService articleService { get; set; }
         protected ICategoryService categoryService { get; set; }
 
-        private ISession _session;
         private ISession Session
         {
             get
             {
-                if (_session == null)
-                {
-                    return HttpContext?.Session;
-                }
-                return null;
+                return HttpContext?.Session;
             }
         }
 
@@ -45,19 +41,60 @@ namespace crud.Controllers
             }
         }
 
-        protected bool? ThemeActivated
+        protected string ThemeOn
         {
             get
             {
                 if (Session != null)
                 {
-                    return Convert.ToBoolean(Session.GetInt32("ThemeActivated"));
+                    return Session.GetString("ThemeOn");
+                }
+                return null;
+            }
+            set
+            {
+                if (Session != null)
+                {
+                    Session.SetString("ThemeOn", value);
+                }
+            }
+        }
+
+        protected string ThemeOff
+        {
+            get
+            {
+                if (Session != null)
+                {
+                    return Session.GetString("ThemeOff");
+                }
+                return null;
+            }
+            set
+            {
+                if (Session != null)
+                {
+                    Session.SetString("ThemeOff", value);
+                }
+            }
+        }
+
+        protected bool Flag
+        {
+            get
+            {
+                if (Session != null)
+                {
+                    return Convert.ToBoolean(Session.GetString("Flag"));
                 }
                 return false;
             }
             set
             {
-                Session.SetInt32("ThemeActivated", Convert.ToInt32(value));
+                if (Session != null)
+                {
+                    Session.SetString("Flag", Convert.ToString(value));
+                }
             }
         }
 
@@ -68,18 +105,34 @@ namespace crud.Controllers
         }
 
         [HttpPost(Name = "/Base/ChangeTheme")]
-        public JsonResult ChangeTheme(string theme)
+        public JsonResult ChangeTheme(string themeOn, string themeOff, bool flag)
         {
-            AppTheme = theme;
-            ThemeActivated = !ThemeActivated;
+            ThemeOn = themeOn;
+            ThemeOff = themeOff;
+            Flag = flag;
 
             var data = new
             {
-                theme = AppTheme,
-                themeActivated = ThemeActivated
+                themeOn = ThemeOn,
+                themeOff = ThemeOff,
+                flag = Flag
             };
 
             return Json(data);
+        }
+
+        public override void OnActionExecuted(ActionExecutedContext context)
+        {
+            if (Session != null && Session.Keys.Count() == 0)
+            {
+                ThemeOn = "/lib/bootstrap/dist/css/bootstrap.css";
+                ThemeOff = "/lib/bootswatch/css/bootstrap.css";
+                Flag = false;
+            }
+
+            ViewBag.ThemeOn = ThemeOn;
+            ViewBag.ThemeOff = ThemeOff;
+            ViewBag.Flag = Flag;
         }
     }
 }

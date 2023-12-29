@@ -1,14 +1,10 @@
-﻿@using Microsoft.AspNetCore.Http;
-@inject IHttpContextAccessor HttpContextAccessor
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - crud_mvc_dotnet</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" id="bootstrap-theme" />
+    <link rel="stylesheet" href="@ViewBag.ThemeOn" id="bootstrap-theme" />
     <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/lib/fontawesome/fonts/fontawesome-webfont.woff" />
     <link rel="stylesheet" href="~/css/site.css" />

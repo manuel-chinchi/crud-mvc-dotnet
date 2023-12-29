@@ -30,16 +30,16 @@ function alternarEstilos(fileActivated, fileDeactivated) {
     });
 }
 
-function changeTheme(theme) {
-    var urlChangeTheme = "/Base/ChangeTheme?theme=" + theme;
+function changeTheme(themeOn, themeOff, flag) {
+    var urlChangeTheme = "/Base/ChangeTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&flag=" + flag;
     $.ajax({
         type: "POST",
         url: urlChangeTheme,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            if (data.theme != null) {
-                console.log("a:" + data.theme + ", b:" + data.themeActivated);
+            if (data != null) {
+                alternarEstilos(data.themeOn, data.themeOff);
             }
         },
         error: function (error) {
@@ -53,11 +53,11 @@ $(document).ready(function () {
 
     $('#btn-switch-theme').change(function () {
         if ($(this).is(':checked')) {
-            changeTheme(sheetThemeDarkly);
-            alternarEstilos(sheetThemeDarkly, sheetThemeLight);
+            changeTheme(sheetThemeDarkly, sheetThemeLight, true);
+            //alternarEstilos(sheetThemeDarkly, sheetThemeLight, true);
         } else {
-            changeTheme(sheetThemeLight);
-            alternarEstilos(sheetThemeLight, sheetThemeDarkly);
+            changeTheme(sheetThemeLight, sheetThemeDarkly, false);
+            //alternarEstilos(sheetThemeLight, sheetThemeDarkly, false);
         }
     });
 
