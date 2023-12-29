@@ -31,7 +31,7 @@ function alternarEstilos(fileActivated, fileDeactivated) {
 }
 
 function changeTheme(themeOn, themeOff, switchIsActive) {
-    var urlChangeTheme = "/Base/ChangeTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&switchIsActive=" + switchIsActive;
+    var urlChangeTheme = "/Base/ChangeAppTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&switchIsActive=" + switchIsActive;
     $.ajax({
         type: "POST",
         url: urlChangeTheme,
@@ -52,10 +52,8 @@ $(document).ready(function () {
     $('#btn-switch-theme').change(function () {
         if ($(this).is(':checked')) {
             changeTheme(sheetThemeDarkly, sheetThemeLight, true);
-            //alternarEstilos(sheetThemeDarkly, sheetThemeLight, true);
         } else {
             changeTheme(sheetThemeLight, sheetThemeDarkly, false);
-            //alternarEstilos(sheetThemeLight, sheetThemeDarkly, false);
         }
     });
 });
