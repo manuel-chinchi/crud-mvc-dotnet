@@ -26,12 +26,12 @@ function alternarEstilos(fileActivated, fileDeactivated) {
 
         // Cambiar la referencia de la hoja de estilos activa
         sheetRef.attr('id', '');
-        $('head link[href="' + fileActivated + '"]').attr('id', 'main-css');
+        $('head link[href="' + fileActivated + '"]').attr('id', 'bootstrap-theme');
     });
 }
 
-function changeTheme(themeOn, themeOff, flag) {
-    var urlChangeTheme = "/Base/ChangeTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&flag=" + flag;
+function changeTheme(themeOn, themeOff, switchIsActive) {
+    var urlChangeTheme = "/Base/ChangeTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&switchIsActive=" + switchIsActive;
     $.ajax({
         type: "POST",
         url: urlChangeTheme,
@@ -49,8 +49,6 @@ function changeTheme(themeOn, themeOff, flag) {
 }
 
 $(document).ready(function () {
-    var buttonListExportRef = $("button.dt-button.buttons-collection");
-
     $('#btn-switch-theme').change(function () {
         if ($(this).is(':checked')) {
             changeTheme(sheetThemeDarkly, sheetThemeLight, true);
@@ -59,10 +57,5 @@ $(document).ready(function () {
             changeTheme(sheetThemeLight, sheetThemeDarkly, false);
             //alternarEstilos(sheetThemeLight, sheetThemeDarkly, false);
         }
-    });
-
-    /*$(".dt-button-collection").addClass("bg-dark");*/
-    buttonListExportRef.on('click', function () {
-        alert("sss");
     });
 });

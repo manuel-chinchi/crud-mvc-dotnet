@@ -22,25 +22,6 @@ namespace crud.Controllers
             }
         }
 
-        protected string AppTheme
-        {
-            get
-            {
-                if (Session != null)
-                {
-                    return Session.GetString("AppTheme");
-                }
-                return null;
-            }
-            set
-            {
-                if (Session != null)
-                {
-                    Session.SetString("AppTheme", value);
-                }
-            }
-        }
-
         protected string ThemeOn
         {
             get
@@ -79,13 +60,13 @@ namespace crud.Controllers
             }
         }
 
-        protected bool Flag
+        protected bool SwitchIsActive
         {
             get
             {
                 if (Session != null)
                 {
-                    return Convert.ToBoolean(Session.GetString("Flag"));
+                    return Convert.ToBoolean(Session.GetString("SwitchIsActive"));
                 }
                 return false;
             }
@@ -93,7 +74,7 @@ namespace crud.Controllers
             {
                 if (Session != null)
                 {
-                    Session.SetString("Flag", Convert.ToString(value));
+                    Session.SetString("SwitchIsActive", Convert.ToString(value));
                 }
             }
         }
@@ -105,17 +86,17 @@ namespace crud.Controllers
         }
 
         [HttpPost(Name = "/Base/ChangeTheme")]
-        public JsonResult ChangeTheme(string themeOn, string themeOff, bool flag)
+        public JsonResult ChangeTheme(string themeOn, string themeOff, bool switchIsActive)
         {
             ThemeOn = themeOn;
             ThemeOff = themeOff;
-            Flag = flag;
+            SwitchIsActive = switchIsActive;
 
             var data = new
             {
                 themeOn = ThemeOn,
                 themeOff = ThemeOff,
-                flag = Flag
+                switchIsActive = SwitchIsActive
             };
 
             return Json(data);
@@ -127,12 +108,12 @@ namespace crud.Controllers
             {
                 ThemeOn = "/lib/bootstrap/dist/css/bootstrap.css";
                 ThemeOff = "/lib/bootswatch/css/bootstrap.css";
-                Flag = false;
+                SwitchIsActive = false;
             }
 
             ViewBag.ThemeOn = ThemeOn;
             ViewBag.ThemeOff = ThemeOff;
-            ViewBag.Flag = Flag;
+            ViewBag.SwitchIsActive = SwitchIsActive;
         }
     }
 }
