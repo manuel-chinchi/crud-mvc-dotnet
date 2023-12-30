@@ -5,6 +5,7 @@
 // utils
 // https://stackoverflow.com/questions/45515559/how-to-call-datatable-csv-button-from-custom-button
 // https://stackoverflow.com/questions/54352745/how-to-hook-up-custom-buttons-instead-of-the-datatables-buttons?noredirect=1&lq=1
+// https://live.datatables.net/
 
 $(document).ready(function () {
     tableRef.DataTable({
