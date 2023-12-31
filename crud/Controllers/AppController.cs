@@ -17,7 +17,7 @@ namespace crud.Controllers
 
         // Paths of css file themes
         public const string FILE_THEME_LIGHT = "/lib/bootstrap/dist/css/bootstrap.css";
-        public const string FILE_THEME_DARK = "/lib/bootswatch/css/bootstrap.css";
+        public const string FILE_THEME_DARK = "/lib/bootswatch/css/bootstrap-darkly.css";
     }
 
     public class AppController : Controller
