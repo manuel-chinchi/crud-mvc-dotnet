@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace crud.Controllers
 {
-    public partial class AppConstants
+    public partial class ApplicationConstants
     {
         // Keys used for save values in Session
         public const string K_SWITCH_IS_ACTIVE = "SwitchIsActive";
@@ -20,7 +20,7 @@ namespace crud.Controllers
         public const string FILE_THEME_DARK = "/lib/bootswatch/css/bootstrap-darkly.css";
     }
 
-    public class AppController : Controller
+    public class ApplicationController : Controller
     {
         #region Configure theme
 
@@ -39,7 +39,7 @@ namespace crud.Controllers
             {
                 if (_session != null)
                 {
-                    return _session.GetString(AppConstants.K_THEME_ON);
+                    return _session.GetString(ApplicationConstants.K_THEME_ON);
                 }
                 return null;
             }
@@ -47,7 +47,7 @@ namespace crud.Controllers
             {
                 if (_session != null)
                 {
-                    _session.SetString(AppConstants.K_THEME_ON, value);
+                    _session.SetString(ApplicationConstants.K_THEME_ON, value);
                 }
             }
         }
@@ -58,7 +58,7 @@ namespace crud.Controllers
             {
                 if (_session != null)
                 {
-                    return _session.GetString(AppConstants.K_THEME_OFF);
+                    return _session.GetString(ApplicationConstants.K_THEME_OFF);
                 }
                 return null;
             }
@@ -66,7 +66,7 @@ namespace crud.Controllers
             {
                 if (_session != null)
                 {
-                    _session.SetString(AppConstants.K_THEME_OFF, value);
+                    _session.SetString(ApplicationConstants.K_THEME_OFF, value);
                 }
             }
         }
@@ -77,7 +77,7 @@ namespace crud.Controllers
             {
                 if (_session != null)
                 {
-                    return Convert.ToBoolean(_session.GetString(AppConstants.K_SWITCH_IS_ACTIVE));
+                    return Convert.ToBoolean(_session.GetString(ApplicationConstants.K_SWITCH_IS_ACTIVE));
                 }
                 return false;
             }
@@ -85,7 +85,7 @@ namespace crud.Controllers
             {
                 if (_session != null)
                 {
-                    _session.SetString(AppConstants.K_SWITCH_IS_ACTIVE, Convert.ToString(value));
+                    _session.SetString(ApplicationConstants.K_SWITCH_IS_ACTIVE, Convert.ToString(value));
                 }
             }
         }
@@ -112,11 +112,11 @@ namespace crud.Controllers
             var keys = _session.Keys.ToList();
 
             //if (Session != null && Session.Keys.Count() == 0)
-            if (!keys.Contains(AppConstants.K_THEME_ON) && !keys.Contains(AppConstants.K_THEME_ON) &&
-                !keys.Contains(AppConstants.K_SWITCH_IS_ACTIVE))
+            if (!keys.Contains(ApplicationConstants.K_THEME_ON) && !keys.Contains(ApplicationConstants.K_THEME_ON) &&
+                !keys.Contains(ApplicationConstants.K_SWITCH_IS_ACTIVE))
             {
-                ThemeOn = AppConstants.FILE_THEME_LIGHT;
-                ThemeOff = AppConstants.FILE_THEME_DARK;
+                ThemeOn = ApplicationConstants.FILE_THEME_LIGHT;
+                ThemeOff = ApplicationConstants.FILE_THEME_DARK;
                 SwitchIsActive = false;
             }
 
@@ -128,8 +128,8 @@ namespace crud.Controllers
             }
             else
             {
-                ViewBag.ThemeOn = AppConstants.FILE_THEME_DARK;
-                ViewBag.ThemeOff = AppConstants.FILE_THEME_LIGHT;
+                ViewBag.ThemeOn = ApplicationConstants.FILE_THEME_DARK;
+                ViewBag.ThemeOff = ApplicationConstants.FILE_THEME_LIGHT;
                 ViewBag.SwitchIsActive = true;
                 _defaultLightTheme = true;
             }
