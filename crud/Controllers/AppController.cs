@@ -8,11 +8,24 @@ using System.Threading.Tasks;
 
 namespace crud.Controllers
 {
+    public partial class AppConstants
+    {
+        // Keys used for save values in Session
+        public const string K_SWITCH_IS_ACTIVE = "SwitchIsActive";
+        public const string K_THEME_ON = "ThemeOn";
+        public const string K_THEME_OFF = "ThemeOff";
+
+        // Paths of css file themes
+        public const string FILE_THEME_LIGHT = "/lib/bootstrap/dist/css/bootstrap.css";
+        public const string FILE_THEME_DARK = "/lib/bootswatch/css/bootstrap.css";
+    }
+
     public class AppController : Controller
     {
         #region Configure theme
 
-        private ISession Session
+        private static bool _defaultLightTheme { get; set; } = true;
+        private ISession _session
         {
             get
             {
@@ -24,17 +37,17 @@ namespace crud.Controllers
         {
             get
             {
-                if (Session != null)
+                if (_session != null)
                 {
-                    return Session.GetString("ThemeOn");
+                    return _session.GetString(AppConstants.K_THEME_ON);
                 }
                 return null;
             }
             set
             {
-                if (Session != null)
+                if (_session != null)
                 {
-                    Session.SetString("ThemeOn", value);
+                    _session.SetString(AppConstants.K_THEME_ON, value);
                 }
             }
         }
@@ -43,17 +56,17 @@ namespace crud.Controllers
         {
             get
             {
-                if (Session != null)
+                if (_session != null)
                 {
-                    return Session.GetString("ThemeOff");
+                    return _session.GetString(AppConstants.K_THEME_OFF);
                 }
                 return null;
             }
             set
             {
-                if (Session != null)
+                if (_session != null)
                 {
-                    Session.SetString("ThemeOff", value);
+                    _session.SetString(AppConstants.K_THEME_OFF, value);
                 }
             }
         }
@@ -62,17 +75,17 @@ namespace crud.Controllers
         {
             get
             {
-                if (Session != null)
+                if (_session != null)
                 {
-                    return Convert.ToBoolean(Session.GetString("SwitchIsActive"));
+                    return Convert.ToBoolean(_session.GetString(AppConstants.K_SWITCH_IS_ACTIVE));
                 }
                 return false;
             }
             set
             {
-                if (Session != null)
+                if (_session != null)
                 {
-                    Session.SetString("SwitchIsActive", Convert.ToString(value));
+                    _session.SetString(AppConstants.K_SWITCH_IS_ACTIVE, Convert.ToString(value));
                 }
             }
         }
@@ -96,18 +109,36 @@ namespace crud.Controllers
 
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            if (Session != null && Session.Keys.Count() == 0)
+            var keys = _session.Keys.ToList();
+
+            //if (Session != null && Session.Keys.Count() == 0)
+            if (!keys.Contains(AppConstants.K_THEME_ON) && !keys.Contains(AppConstants.K_THEME_ON) &&
+                !keys.Contains(AppConstants.K_SWITCH_IS_ACTIVE))
             {
-                ThemeOn = "/lib/bootstrap/dist/css/bootstrap.css";
-                ThemeOff = "/lib/bootswatch/css/bootstrap.css";
+                ThemeOn = AppConstants.FILE_THEME_LIGHT;
+                ThemeOff = AppConstants.FILE_THEME_DARK;
                 SwitchIsActive = false;
             }
 
-            ViewBag.ThemeOn = ThemeOn;
-            ViewBag.ThemeOff = ThemeOff;
-            ViewBag.SwitchIsActive = SwitchIsActive;
+            if (_defaultLightTheme)
+            {
+                ViewBag.ThemeOn = ThemeOn;
+                ViewBag.ThemeOff = ThemeOff;
+                ViewBag.SwitchIsActive = SwitchIsActive;
+            }
+            else
+            {
+                ViewBag.ThemeOn = AppConstants.FILE_THEME_DARK;
+                ViewBag.ThemeOff = AppConstants.FILE_THEME_LIGHT;
+                ViewBag.SwitchIsActive = true;
+                _defaultLightTheme = true;
+            }
         }
-        
+
+        public void SetDefaultLightTheme(bool opt = true)
+        {
+            _defaultLightTheme = opt;
+        }
         #endregion
     }
 }

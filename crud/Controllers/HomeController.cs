@@ -18,6 +18,7 @@ namespace crud.Controllers
             {
                 { "urlJquery", "https://jquery.com/" },
                 { "urlBootstrap", "https://getbootstrap.com/" },
+                { "urlBootswatch", "https://bootswatch.com/"},
                 { "urlDatatables", "https://datatables.net/"},
                 { "urlEF6", "https://www.nuget.org/packages/EntityFramework/" },
                 { "urlChartjs", "https://www.chartjs.org/" },
