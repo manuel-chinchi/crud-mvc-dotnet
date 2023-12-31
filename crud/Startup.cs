@@ -33,7 +33,7 @@ namespace crud
             //services.AddSingleton<ArticleController, ArticleController>();
             //services.AddMvc().AddControllersAsServices();
 
-            #region Configuracion_FluentValidation
+            #region Configuration FluentValidation
             services.AddControllers();
             services.AddFluentValidation(options =>
             {
@@ -42,7 +42,7 @@ namespace crud
             });
             #endregion
 
-            #region Configure services
+            #region Configuration services
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(10);

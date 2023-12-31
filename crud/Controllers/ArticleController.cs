@@ -77,8 +77,6 @@ namespace crud.Controllers
         {
             ViewBag.Message = "Lista de artículos existentes";
 
-            SetDefaultLightTheme(false);
-
             return View(articleService.GetArticles());
         }
     }

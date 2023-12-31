@@ -24,7 +24,7 @@ function alternateStyles(fileActivated) {
 }
 
 function changeTheme(themeOn, themeOff, switchIsActive) {
-    var urlChangeTheme = "/Base/ChangeAppTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&switchIsActive=" + switchIsActive;
+    var urlChangeTheme = "/Application/ChangeAppTheme?themeOn=" + themeOn + "&themeOff=" + themeOff + "&switchIsActive=" + switchIsActive;
     $.ajax({
         type: "POST",
         url: urlChangeTheme,
