@@ -1,5 +1,4 @@
-﻿using crud.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace crud.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
@@ -19,6 +18,7 @@ namespace crud.Controllers
             {
                 { "urlJquery", "https://jquery.com/" },
                 { "urlBootstrap", "https://getbootstrap.com/" },
+                { "urlBootswatch", "https://bootswatch.com/"},
                 { "urlDatatables", "https://datatables.net/"},
                 { "urlEF6", "https://www.nuget.org/packages/EntityFramework/" },
                 { "urlChartjs", "https://www.chartjs.org/" },

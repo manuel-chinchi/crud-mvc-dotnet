@@ -4,15 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - crud_mvc_dotnet</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="@ViewBag.ThemeOn" id="bootstrap-theme" />
     <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/lib/fontawesome/fonts/fontawesome-webfont.woff" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">crud_mvc_dotnet</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -61,6 +60,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/button-dark-mode.js"></script>
     @RenderSection("Scripts", required: false)
 
     <!-- #region chartjs -->

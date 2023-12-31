@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace crud.Controllers
 {
-    public class BaseController : Controller
+    public class BaseController : ApplicationController
     {
         protected IArticleService articleService { get; set; }
         protected ICategoryService categoryService { get; set; }

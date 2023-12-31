@@ -1,4 +1,19 @@
-﻿div.dt-buttons {
+﻿div.dt-button-collection {
+    color: #212529; /* fix switch theme dark mode */
+}
+[name="table-articles_length"],
+[name="table-categories_length"]{
+    /*color: red;*/
+    /*background-color: green;*/
+    background-color: white !important;
+}
+
+#table-articles_filter input,
+#table-categories_filter input {
+    background-color: white !important;
+}
+
+div.dt-buttons {
     margin-left: 1.2em;
     height: 40.8px;
 }
