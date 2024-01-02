@@ -91,7 +91,6 @@ namespace crud.Controllers
         }
 
         [HttpPost(Name ="Application/ChangeAppTheme")]
-        //[Route("ChangeTheme")]
         public JsonResult ChangeTheme(string themeOn, string themeOff, bool switchIsActive)
         {
             ThemeOn = themeOn;
