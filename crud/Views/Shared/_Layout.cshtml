@@ -46,14 +46,14 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderSection("ChartJSStyle", required: false)
+            @RenderSection("ChartJs_Css", required: false)
             @RenderSection("DatatablesButtons_Css", required: false)
             @RenderBody()
         </main>
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - @ViewBag.AppName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - @ViewBag.AppName
         </div>
     </footer>
 
@@ -65,16 +65,16 @@
     @RenderSection("Scripts", required: false)
 
     <!-- chartjs -->
-    @RenderSection("ChartJS", required: false)
+    @RenderSection("ChartJs_Js", required: false)
 
     <!-- jquery-datatables configuration -->
     <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="~/lib/datatables-buttons/css/datatables-custom.css" />
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
-    @RenderSection("DatatablesButtons_Js_Articles", required: false)
-    @RenderSection("DatatablesButtons_Js_Categories", required: false)
+    @RenderSection("DatatablesButtons_Articles_Js", required: false)
+    @RenderSection("DatatablesButtons_Categories_Js", required: false)
     @RenderSection("DatatablesButtons_Js", required: false)
 
-    @RenderSection("BootstrapCustom", required: false)
+    @RenderSection("BootstrapCustom_Js", required: false)
 </body>
 </html>
