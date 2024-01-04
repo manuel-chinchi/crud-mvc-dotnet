@@ -146,7 +146,8 @@ namespace crud.Controllers
         public void SetDefaultVariables()
         {
             ViewBag.AppName = "crud_mvc_dotnet";
-            ViewBag.AppTitle = ViewBag.AppName + " (Proyecto)";
+            ViewBag.AppVersion = "v1.2.1";
+            ViewBag.AppTitle = ViewBag.AppName + " " + ViewBag.AppVersion + " (Proyecto)";
         }
 
         #endregion
