@@ -90,7 +90,7 @@ namespace crud.Controllers
             }
         }
 
-        [HttpPost(Name ="Application/ChangeAppTheme")]
+        [HttpPost(Name = "Application/ChangeAppTheme")]
         public JsonResult ChangeTheme(string themeOn, string themeOff, bool switchIsActive)
         {
             ThemeOn = themeOn;
@@ -139,6 +139,16 @@ namespace crud.Controllers
         {
             _defaultLightTheme = opt;
         }
+        #endregion
+
+        #region Configure global variables
+
+        public void SetDefaultVariables()
+        {
+            ViewBag.AppName = "crud_mvc_dotnet";
+            ViewBag.AppTitle = ViewBag.AppName + " (Proyecto)";
+        }
+
         #endregion
     }
 }
