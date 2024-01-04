@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-3">
+        <nav class="navbar navbar-expand-sm navbar-default bg-default border-bottom mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">crud_mvc_dotnet</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -56,23 +56,24 @@
             &copy; 2023 - crud_mvc_dotnet - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <!-- jquery -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/button-dark-mode.js"></script>
     @RenderSection("Scripts", required: false)
 
-    <!-- #region chartjs -->
+    <!-- chartjs -->
     @RenderSection("ChartJS", required: false)
-    <!-- #endregion -->
-    <!-- #region jquery-datatables configuration -->
+
+    <!-- jquery-datatables configuration -->
     <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="~/lib/datatables-buttons/css/datatables-custom.css" />
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     @RenderSection("DatatablesButtons_Js_Articles", required: false)
     @RenderSection("DatatablesButtons_Js_Categories", required: false)
     @RenderSection("DatatablesButtons_Js", required: false)
-    <!-- #endregion -->
 
     @RenderSection("BootstrapCustom", required: false)
 </body>
