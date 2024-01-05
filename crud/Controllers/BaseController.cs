@@ -23,7 +23,7 @@ namespace crud.Controllers
         {
             base.OnActionExecuted(context);
 
-            SetDefaultVariables();
+            SetDefaultGlobalValues();
         }
     }
 }

@@ -143,7 +143,7 @@ namespace crud.Controllers
 
         #region Configure global variables
 
-        public void SetDefaultVariables()
+        public void SetDefaultGlobalValues()
         {
             ViewBag.AppName = "crud_mvc_dotnet";
             ViewBag.AppVersion = "v1.2.1";
