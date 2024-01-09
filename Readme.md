@@ -1,7 +1,6 @@
 # Crud MVC DOTNET
 
- Sistema básico con operaciones CRUD (escritura, lectura, edición y borrado de información) 
- sobre una base de datos SQL Server hecho en .Net Core 3.1 y Entity Framework.
+Sistema básico con operaciones CRUD hecho en .Net Core 3.1 y SQL Server.
 
 ## ¿De qué trata esta aplicación?
 
