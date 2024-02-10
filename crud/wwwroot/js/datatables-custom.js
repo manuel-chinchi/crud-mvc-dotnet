@@ -23,12 +23,6 @@ $(document).ready(function () {
             paginate: {
                 previous: arrowLeft,
                 next: arrowRight
-            },
-            buttons: {
-                copyTitle: 'Copiado al portapapeles',
-                copySuccess: {
-                    _: '%d líneas copiadas',
-                },
             }
         },
         dom: 'lBfrtip',
@@ -41,10 +35,22 @@ $(document).ready(function () {
                 //action: function (e, dt, node, config) { }
                 buttons: [
                     {
+                        // https://datatables.net/reference/button/copyHtml5
+                        // https://datatables.net/reference/api/buttons.exportData()
                         extend: 'copy',
                         text: 'Copiar',
                         exportOptions: {
-                            columns: tableCols
+                            columns: tableCols,
+                        },
+                        action: function (e, dt, button, config) {
+                            $('#popupNotify').modal('show');
+                            setTimeout(function () {
+                                $('#popupNotify').modal('hide');
+                            }, 1500);
+
+                            copyTableContentToClipboard(tableRef);
+                            // FIX: Esta línea sirve pero no se puede desactivar el popup por defecto
+                            //$.fn.dataTable.ext.buttons.copyHtml5.action.call(this, e, dt, button, config);
                         }
                     },
                     {
@@ -95,5 +101,15 @@ $(document).ready(function () {
         //$(".current").addClass("active");
         // TODO si agrego estos esitlos los botones quedan alineados a la izq. cuando deberían quedar 
         //centrados en pantallas chicas. revisar la clase "btn-group" su prop. "display"
+    }
+
+    function copyTableContentToClipboard(tableRef) {
+        var table = tableRef.DataTable();
+
+        var header = table.buttons.exportData().header;
+        var body = table.buttons.exportData({ columns: tableCols }).body;
+        body.unshift(header);
+        var clipboardData = body.map(row => row.join('\t')).join('\n');
+        navigator.clipboard.writeText(clipboardData);
     }
 });
