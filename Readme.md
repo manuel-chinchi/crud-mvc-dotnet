@@ -1,10 +1,10 @@
 # Crud MVC DOTNET
 
-Sistema básico con operaciones CRUD hecho en .Net Core 3.1 y SQL Server.
+Sistema web básico con operaciones CRUD hecho en .Net Core 3.1 y SQL Server.
 
 ## ¿De qué trata esta aplicación?
 
-Este proyecto consiste en un pequeño sistema de inventario con una base de datos 
+Este proyecto consiste en un pequeño sistema web MVC de inventario con una base de datos 
 lista para usar y lógica de negocio mínima. 
 Todos los componentes usados se listan a continuación.
 
@@ -61,7 +61,7 @@ Una vez instalados, seguir los siguientes pasos para iniciar el proyecto.
   6. Abrir el navegador e ir a la url anteriormente mostrada y listo, ya se puede probar
   la aplicación.
 
-## Arquitectura de la aplicación
+## Diagrama de clases
 
 La aplicación cuenta con una estructura tipo MVC (Modelo-Vista-Controlador). Además implementa 
 una capa de servicios para el acceso a datos. **Todo esto en un mismo proyecto**. 
@@ -73,18 +73,17 @@ Para una vista general, se presenta el diagrama de clases (archivo `ClassDiagram
 
 Pagina de lista de artículos.
 
-<!-- ![](Resources/Images/articles-list_details-responsive.png) -->
 <p align="center">
-  <img src="Resources/Images/articles-list_details-responsive.png" width="650px" height="1236px">
+  <img src="Resources/Images/article-list-page.png">
 </p>
 
-Página de detalles de un artículo.
+Página de reportes
 
-<!-- ![](Resources/Images/article-details.png) -->
-<p align="center">
-  <img src="Resources/Images/article-details.png" width="630px" height="662px">
+<p>
+  <img src="Resources/Images/report-page.png" alt="">
 </p>
+
 
 ## Demostración
 
-https://user-images.githubusercontent.com/88981972/233879807-b1d2f422-6fdb-4d00-b366-6c6c44391dc6.mp4
+<!-- https://user-images.githubusercontent.com/88981972/233879807-b1d2f422-6fdb-4d00-b366-6c6c44391dc6.mp4 -->
