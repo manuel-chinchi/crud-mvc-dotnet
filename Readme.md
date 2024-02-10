@@ -87,3 +87,7 @@ Página de reportes
 ## Demostración
 
 <!-- https://user-images.githubusercontent.com/88981972/233879807-b1d2f422-6fdb-4d00-b366-6c6c44391dc6.mp4 -->
+https://github.com/manuel-chinchi/crud-mvc-dotnet/assets/88981972/aa1b7251-fe97-4258-b804-1210ad0c51a1
+
+Modo nocturno (visto en teléfono móvil)
+https://github.com/manuel-chinchi/crud-mvc-dotnet/assets/88981972/4edf58fc-0212-4648-8d99-871ae1439dea
