@@ -1,0 +1,39 @@
+﻿@using crud_mvc_aspnet_core.Models
+
+@section ChartJs_Css {
+    <link href="/lib/chartjs/css/chartjs-custom.css" rel="stylesheet" />
+}
+
+<h3>@ViewBag.Title</h3>
+<p>@ViewBag.Message</p>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="btn-group w-100">
+                    <label class="my-auto mr-2">Gráfico</label>
+                    <select class="form-control form-control-sm">
+                        @foreach (ChartInfo item in ViewBag.ChartTypes)
+                        {
+                            <option value="@item.Value">@item.Name</option>
+                        }
+                    </select>
+                    <button class="btn btn-primary btn-sm px-3 ml-3 rounded" id="btn-download-chart">Descargar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="chart-container">
+            <canvas id="chart-pie"></canvas>
+            <canvas id="chart-bar" style="display:none;"></canvas>
+        </div>
+    </div>
+</div>
+
+@section ChartJs_Js {
+    <script src="~/lib/chartjs/js/chart.min.js"></script>
+    <script src="~/lib/chartjs/js/chartjs-custom.js"></script>
+    <script src="~/lib/chartjs/js/chartjs-config.js"></script>
+}

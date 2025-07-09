@@ -1,0 +1,40 @@
+﻿@model crud_mvc_aspnet_core.Models.Article
+
+@{
+    ViewBag.Title = "Crear artículo";
+}
+
+<h3>@ViewBag.Title</h3>
+<p>@ViewBag.Message</p>
+<hr />
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-10">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Name">Nombre</label>
+                <input class="form-control form-control-sm" type="text" asp-for="Name" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <partial name="_DisplayCategoryList" data="@ViewBag.Categories" model="@Model" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Descripción</label>
+                <textarea typeof="text" class="form-control form-control-sm" asp-for="Description"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity">Cantidad</label>
+                <input class="form-control form-control-sm" type="number" asp-for="Quantity" />
+                <span class="text-danger" asp-validation-for="Quantity"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary btn-sm px-3">Guardar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

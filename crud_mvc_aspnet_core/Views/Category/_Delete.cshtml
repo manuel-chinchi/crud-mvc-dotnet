@@ -1,0 +1,27 @@
+﻿@model crud_mvc_aspnet_core.Models.Category
+
+<!-- Modal 'Delete' -->
+<div class="modal fade" id="modal_delete_@{@Model.Id}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                    Borrar categoría
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Desea eliminar la categoría <strong>@Model.Name</strong>?
+            </div>
+            <br />
+            <form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm px-3" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary btn-sm px-3" asp-controller="Category" asp-action="Delete" name="id" value="@Model.Id">Aceptar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

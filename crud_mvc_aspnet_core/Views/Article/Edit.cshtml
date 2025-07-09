@@ -1,0 +1,41 @@
+﻿@model crud_mvc_aspnet_core.Models.Article
+
+@{
+    ViewBag.Title = "Editar artículo";
+}
+
+<h3>@ViewBag.Title</h3>
+<p>@ViewBag.Message</p>
+<hr />
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-10">
+        <form asp-action="Edit">
+            <input hidden value="@Model.Id" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name">Nombre</label>
+                <input type="text" class="form-control form-control-sm" value="@Model.Name" asp-for="Name" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <partial name="_DisplayCategoryList" data="@ViewBag.Categories" model="@Model"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Descripción</label>
+                <textarea typeof="text" class="form-control form-control-sm" asp-for="Description">@Model.Description</textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity">Cantidad</label>
+                <input type="number" class="form-control form-control-sm" value="@Model.Quantity" asp-for="Quantity" />
+                <span class="text-danger" asp-validation-for="Quantity"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary btn-sm px-3">Guardar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

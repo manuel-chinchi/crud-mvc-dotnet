@@ -1,0 +1,10 @@
+﻿@model crud_mvc_aspnet_core.Models.Category
+<!-- Button trigger modal 'Delete' -->
+@*<a class="btn btn-danger btn-sm text-white" data-toggle="modal" data-target="#modal_delete_@{@Model.Id}" id="inputTrigger">Eliminar</a>*@
+
+<!-- Button trigger modal 'Delete' -->
+<form>
+    <button type="button" class="btn btn-danger btn-sm" title="Eliminar" data-toggle="modal" data-target="#modal_delete_@{@Model.Id}" id="inputTrigger"><span class="fa fa-trash"></span></button>
+</form>
+
+<partial name="_Delete" model="Model" />
