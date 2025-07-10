@@ -18,7 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="App_Data\crud_mvc_dotnet.mdf">
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App_Data\crud_mvc_aspnet_core.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
